@@ -6,10 +6,18 @@
             "id": "9ac2ae36-534b-41c0-bd53-b8d4e573fd2d",
             "actions": [
                 {
-                    "name": "Move",
-                    "type": "Button",
+                    "name": "MoveRight",
+                    "type": "PassThrough",
                     "id": "e13a23cd-cd4e-4ea9-a3f2-8581d5deac7e",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "MoveLeft",
+                    "type": "PassThrough",
+                    "id": "100fad6e-f698-47e5-9244-c9bad37bb583",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 }
@@ -18,11 +26,22 @@
                 {
                     "name": "",
                     "id": "84da5471-76ee-46cc-9f6a-d096866080ee",
-                    "path": "<SwitchProControllerHID>/rightStick",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "MoveRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6d0bbcfc-82a3-4b8a-a93b-65a40f0d6340",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

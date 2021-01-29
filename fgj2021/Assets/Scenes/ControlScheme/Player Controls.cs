@@ -19,10 +19,18 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""id"": ""9ac2ae36-534b-41c0-bd53-b8d4e573fd2d"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
-                    ""type"": ""Button"",
+                    ""name"": ""MoveRight"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""e13a23cd-cd4e-4ea9-a3f2-8581d5deac7e"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MoveLeft"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""100fad6e-f698-47e5-9244-c9bad37bb583"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -31,11 +39,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""84da5471-76ee-46cc-9f6a-d096866080ee"",
-                    ""path"": ""<SwitchProControllerHID>/rightStick"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""MoveRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6d0bbcfc-82a3-4b8a-a93b-65a40f0d6340"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -180,7 +199,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
 }");
         // GameplaySticks
         m_GameplaySticks = asset.FindActionMap("GameplaySticks", throwIfNotFound: true);
-        m_GameplaySticks_Move = m_GameplaySticks.FindAction("Move", throwIfNotFound: true);
+        m_GameplaySticks_MoveRight = m_GameplaySticks.FindAction("MoveRight", throwIfNotFound: true);
+        m_GameplaySticks_MoveLeft = m_GameplaySticks.FindAction("MoveLeft", throwIfNotFound: true);
         // GameplayKeyboard
         m_GameplayKeyboard = asset.FindActionMap("GameplayKeyboard", throwIfNotFound: true);
         m_GameplayKeyboard_WASD = m_GameplayKeyboard.FindAction("WASD", throwIfNotFound: true);
@@ -234,12 +254,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     // GameplaySticks
     private readonly InputActionMap m_GameplaySticks;
     private IGameplaySticksActions m_GameplaySticksActionsCallbackInterface;
-    private readonly InputAction m_GameplaySticks_Move;
+    private readonly InputAction m_GameplaySticks_MoveRight;
+    private readonly InputAction m_GameplaySticks_MoveLeft;
     public struct GameplaySticksActions
     {
         private @PlayerControls m_Wrapper;
         public GameplaySticksActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_GameplaySticks_Move;
+        public InputAction @MoveRight => m_Wrapper.m_GameplaySticks_MoveRight;
+        public InputAction @MoveLeft => m_Wrapper.m_GameplaySticks_MoveLeft;
         public InputActionMap Get() { return m_Wrapper.m_GameplaySticks; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -249,16 +271,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_GameplaySticksActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnMove;
+                @MoveRight.started -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnMoveRight;
+                @MoveRight.performed -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnMoveRight;
+                @MoveRight.canceled -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnMoveRight;
+                @MoveLeft.started -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnMoveLeft;
+                @MoveLeft.performed -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnMoveLeft;
+                @MoveLeft.canceled -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnMoveLeft;
             }
             m_Wrapper.m_GameplaySticksActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Move.started += instance.OnMove;
-                @Move.performed += instance.OnMove;
-                @Move.canceled += instance.OnMove;
+                @MoveRight.started += instance.OnMoveRight;
+                @MoveRight.performed += instance.OnMoveRight;
+                @MoveRight.canceled += instance.OnMoveRight;
+                @MoveLeft.started += instance.OnMoveLeft;
+                @MoveLeft.performed += instance.OnMoveLeft;
+                @MoveLeft.canceled += instance.OnMoveLeft;
             }
         }
     }
@@ -306,7 +334,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public GameplayKeyboardActions @GameplayKeyboard => new GameplayKeyboardActions(this);
     public interface IGameplaySticksActions
     {
-        void OnMove(InputAction.CallbackContext context);
+        void OnMoveRight(InputAction.CallbackContext context);
+        void OnMoveLeft(InputAction.CallbackContext context);
     }
     public interface IGameplayKeyboardActions
     {

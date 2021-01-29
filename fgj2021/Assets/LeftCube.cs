@@ -18,8 +18,8 @@ public class LeftCube : MonoBehaviour
     {
         controls = new PlayerControls();
 
-        // controls.GameplaySticks.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
-        // controls.GameplaySticks.Move.canceled += ctx => move = Vector2.zero;
+        controls.GameplaySticks.MoveLeft.performed += ctx => move = ctx.ReadValue<Vector2>();
+        controls.GameplaySticks.MoveLeft.canceled += ctx => move = Vector2.zero;
 
         controls.GameplayKeyboard.WASD.performed += ctx => move = ctx.ReadValue<Vector2>();
         controls.GameplayKeyboard.WASD.canceled += ctx => move = Vector2.zero;
