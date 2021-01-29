@@ -13,6 +13,8 @@ public class Variables : MonoBehaviour
 
     private float rotationVelocity;
 
+    public List<Sprite> sprites;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,19 +25,21 @@ public class Variables : MonoBehaviour
         
         var forceDirection = new Vector2(Random.Range(0, 360), Random.Range(0, 360));
 
-        movingVelocity = Random.Range(0.0f, 10f);
+        movingVelocity = Random.Range(0.0f, 15f);
         rotationVelocity = Random.Range(0.0f, 10f);
 
         body.AddForce(forceDirection * movingVelocity);
+
+        GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Count - 1)];
 
     }
 
     void Update() {
         if (rotationVelocity > 0) {
-            transform.Rotate(Vector3.left, 45 * Time.deltaTime * rotationVelocity);
+            transform.eulerAngles = Vector3.forward * 45 * rotationVelocity;
             rotationVelocity -= 0.01f;
         }
-        
+        Debug.Log(trans.position.x);
     }
 
 }

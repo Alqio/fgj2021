@@ -13,6 +13,11 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
+    void Start() {
+        SpawnLifeboats lifeboats = GetComponent<SpawnLifeboats>();
+        lifeboats.Spawn();
+    }
+
     public string getName() {
         var nameScript = GetComponent<Names>();
         return nameScript.getName();

@@ -824,7 +824,7 @@ public class Names : MonoBehaviour
 
     public string getName() {
         var namesIndex = Random.Range (0,(names.Count - 1));
-        var surNamesIndex = Random.Range (0,(names.Count - 1));
+        var surNamesIndex = Random.Range (0,(surNames.Count - 1));
 
         return names[namesIndex] + " " + surNames[surNamesIndex];
     }

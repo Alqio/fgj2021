@@ -14,19 +14,19 @@ public class SpawnLifeboats : MonoBehaviour
         tr = GetComponent<Transform>();
     }
 
-    void Spawn() {
-        int spawnAmount = Random.Range(0, 5);
+    public void Spawn() {
+        int spawnAmount = Random.Range(1, 5);
 
         for (var i = 0; i < spawnAmount; i++) {
-            var x = tr.position.x + Random.Range(-15, 15);
-            var y = tr.position.x + Random.Range(-15, 15);
+            var x = tr.position.x + Random.Range(-0.2f, 0.2f);
+            var y = tr.position.y + Random.Range(-0.2f, 0.2f);
 
             var rotX = Random.Range(0f, 360f);
             var rotY = Random.Range(0f, 360f);
 
-            Quaternion rotation = Quaternion.Euler(rotX, rotY, 0);
+            Quaternion rotation = Quaternion.Euler(rotX, 0, 0);
 
-            GameObject lifeboat = Instantiate(lifeboatPrefab, new Vector2(x, y), rotation);
+            GameObject lifeboat = Instantiate(lifeboatPrefab, new Vector3(x, y, 0), rotation);
 
             //Variables variables = lifeboat.GetComponent<Variables>();
             
