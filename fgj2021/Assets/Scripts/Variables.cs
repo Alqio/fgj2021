@@ -41,5 +41,10 @@ public class Variables : MonoBehaviour
         }
         Debug.Log(trans.position.x);
     }
-
+    void OnGUI()
+    {
+        var position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+        var textSize = GUI.skin.label.CalcSize(new GUIContent(personName));
+        GUI.Label(new Rect(position.x, Screen.height - position.y, textSize.x, textSize.y), personName);
+    }
 }

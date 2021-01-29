@@ -102,6 +102,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3f30eba41a84e7c4582802845060cf43, type: 3}
   - {fileID: 21300000, guid: 2ae6ae53c3b48484481234d362b11435, type: 3}
   - {fileID: 21300000, guid: 78644222eb4a0004ba14d3b0ecf78372, type: 3}
+  - {fileID: 21300000, guid: a9dd5ac560b6639419acfe2fc0f5373e, type: 3}
+  - {fileID: 21300000, guid: 3d1e423bee295e44d9ea64449d3f422a, type: 3}
 --- !u!50 &49188670697993818
 Rigidbody2D:
   serializedVersion: 4
