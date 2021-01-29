@@ -15,7 +15,7 @@ public class SpawnLifeboats : MonoBehaviour
     }
 
     public void Spawn() {
-        int spawnAmount = Random.Range(1, 5);
+        int spawnAmount = Random.Range(0, 10);
 
         for (var i = 0; i < spawnAmount; i++) {
             var x = tr.position.x + Random.Range(-0.2f, 0.2f);

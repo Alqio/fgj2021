@@ -23,10 +23,10 @@ public class Variables : MonoBehaviour
         personName = GameManagerScript.Instance.getName();
 
         
-        var forceDirection = new Vector2(Random.Range(0, 360), Random.Range(0, 360));
+        var forceDirection = new Vector2(Random.Range(-360, 360), Random.Range(-360, 360));
 
-        movingVelocity = Random.Range(0.0f, 15f);
-        rotationVelocity = Random.Range(0.0f, 10f);
+        movingVelocity = Random.Range(0.0f, 40f);
+        rotationVelocity = Random.Range(0.0f, 30f);
 
         body.AddForce(forceDirection * movingVelocity);
 
