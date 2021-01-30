@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RescueCollision : MonoBehaviour
 {
+
+    private bool isDestroyed = false;
     // private Collision2D collision;
     // Start is called before the first frame update
     void Start()
@@ -18,11 +20,18 @@ public class RescueCollision : MonoBehaviour
             Debug.Log("Rescued!");
             Destroy(other.gameObject);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        else if (other.gameObject.tag == "Boat" && !isDestroyed)
+        {
+            isDestroyed = true;
+            int rand_value = Random.Range(0,2);
+            if (rand_value == 1)
+            {
+                other.gameObject.GetComponent<ShipMovement>().DestroyBoat();
+            }
+            else
+            {
+                this.gameObject.GetComponent<ShipMovement>().DestroyBoat();
+            }
+        }
     }
 }

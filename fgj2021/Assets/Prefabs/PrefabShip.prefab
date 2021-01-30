@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -5392396252689719142}
   m_Layer: 0
   m_Name: PrefabShip
-  m_TagString: Untagged
+  m_TagString: Boat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,9 +100,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
-  m_LinearDrag: 0.82
-  m_AngularDrag: 17.06
+  m_Mass: 200
+  m_LinearDrag: 5.74
+  m_AngularDrag: 73.53
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -153,7 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionParticleEffect: {fileID: 4067630610557629175, guid: 5cf4f66a7030db24dbae09ffe90b71a9,
     type: 3}
-  forceMagnitude: 30
+  forceMagnitude: 88.3
+  targetPosition: {x: 9, y: 0}
 --- !u!70 &8049286722461817348
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -194,6 +195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48acd66a8541403197609dfaffb8441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 4
-  highPressure: {fileID: 0}
-  lowPressure: {fileID: 0}
+  thrust: 46.52
+  highPressure: {fileID: 103782256293896345, guid: ac98e914d7a674605bebf42ee130ba6c,
+    type: 3}
+  lowPressure: {fileID: 7301919786284065083, guid: d447c5ea2c5194a2785810fcd7d704d3,
+    type: 3}

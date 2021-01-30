@@ -21,4 +21,9 @@ public class Movement : MonoBehaviour
     {
          
     }
+    void OnBecameInvisible()
+    {
+        Debug.Log("Invisble");
+        Destroy(this.gameObject);
+    }
 }

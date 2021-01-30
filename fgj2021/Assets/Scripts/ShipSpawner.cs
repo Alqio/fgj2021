@@ -8,6 +8,8 @@ public class ShipSpawner : MonoBehaviour
     public float spawnRate = 3.0f;
     // public Vector2 spawnDirection;
 
+    public Vector2 targetPosition;
+
     void Start()
     {
         InvokeRepeating("SpawnShip", 0, spawnRate);
@@ -16,5 +18,6 @@ public class ShipSpawner : MonoBehaviour
     void SpawnShip()
     {
         GameObject ship = Instantiate(gameObjectToSpawn, transform.position, transform.rotation);
+        ship.GetComponent<ShipMovement>().targetPosition = targetPosition;
     }
 }

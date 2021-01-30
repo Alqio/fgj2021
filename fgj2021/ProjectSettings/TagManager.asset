@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lifeboat
   - WindCollider
+  - Boat
   layers:
   - Default
   - TransparentFX

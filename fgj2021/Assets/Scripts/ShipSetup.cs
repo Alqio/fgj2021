@@ -12,7 +12,7 @@ public class ShipSetup : MonoBehaviour
         int randomBoatIndex = Random.Range(0,sprites.Count);
         GetComponent<SpriteRenderer>().sprite = sprites[randomBoatIndex];
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.mass = sprites.Count - randomBoatIndex;
+        rb.mass = (sprites.Count - randomBoatIndex)*80;
     }
 
     // Update is called once per frame

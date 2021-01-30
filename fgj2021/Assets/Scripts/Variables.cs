@@ -25,7 +25,7 @@ public class Variables : MonoBehaviour
         
         var forceDirection = new Vector2(Random.Range(-360, 360), Random.Range(-360, 360));
 
-        movingVelocity = Random.Range(0.0f, 40f);
+        movingVelocity = Random.Range(0.0f, 5f);
         rotationVelocity = Random.Range(0.0f, 30f);
 
         body.AddForce(forceDirection * movingVelocity);
