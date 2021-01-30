@@ -193,6 +193,33 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""GameplayMouse"",
+            ""id"": ""e4e720db-9457-4b45-ae3d-2d899854ab1c"",
+            ""actions"": [
+                {
+                    ""name"": ""MoveMouse"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""788baae4-1d6c-45f9-a3b6-1871fbe120bd"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""e768d98d-346f-4d06-aef5-58d62d262671"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -205,6 +232,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_GameplayKeyboard = asset.FindActionMap("GameplayKeyboard", throwIfNotFound: true);
         m_GameplayKeyboard_WASD = m_GameplayKeyboard.FindAction("WASD", throwIfNotFound: true);
         m_GameplayKeyboard_Arrows = m_GameplayKeyboard.FindAction("Arrows", throwIfNotFound: true);
+        // GameplayMouse
+        m_GameplayMouse = asset.FindActionMap("GameplayMouse", throwIfNotFound: true);
+        m_GameplayMouse_MoveMouse = m_GameplayMouse.FindAction("MoveMouse", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -332,6 +362,39 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public GameplayKeyboardActions @GameplayKeyboard => new GameplayKeyboardActions(this);
+
+    // GameplayMouse
+    private readonly InputActionMap m_GameplayMouse;
+    private IGameplayMouseActions m_GameplayMouseActionsCallbackInterface;
+    private readonly InputAction m_GameplayMouse_MoveMouse;
+    public struct GameplayMouseActions
+    {
+        private @PlayerControls m_Wrapper;
+        public GameplayMouseActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MoveMouse => m_Wrapper.m_GameplayMouse_MoveMouse;
+        public InputActionMap Get() { return m_Wrapper.m_GameplayMouse; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GameplayMouseActions set) { return set.Get(); }
+        public void SetCallbacks(IGameplayMouseActions instance)
+        {
+            if (m_Wrapper.m_GameplayMouseActionsCallbackInterface != null)
+            {
+                @MoveMouse.started -= m_Wrapper.m_GameplayMouseActionsCallbackInterface.OnMoveMouse;
+                @MoveMouse.performed -= m_Wrapper.m_GameplayMouseActionsCallbackInterface.OnMoveMouse;
+                @MoveMouse.canceled -= m_Wrapper.m_GameplayMouseActionsCallbackInterface.OnMoveMouse;
+            }
+            m_Wrapper.m_GameplayMouseActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @MoveMouse.started += instance.OnMoveMouse;
+                @MoveMouse.performed += instance.OnMoveMouse;
+                @MoveMouse.canceled += instance.OnMoveMouse;
+            }
+        }
+    }
+    public GameplayMouseActions @GameplayMouse => new GameplayMouseActions(this);
     public interface IGameplaySticksActions
     {
         void OnMoveRight(InputAction.CallbackContext context);
@@ -341,5 +404,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnWASD(InputAction.CallbackContext context);
         void OnArrows(InputAction.CallbackContext context);
+    }
+    public interface IGameplayMouseActions
+    {
+        void OnMoveMouse(InputAction.CallbackContext context);
     }
 }
