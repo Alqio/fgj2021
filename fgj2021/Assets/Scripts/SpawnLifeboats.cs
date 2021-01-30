@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnLifeBoats : MonoBehaviour
+public class SpawnLifeboats : MonoBehaviour
 {
 
     public GameObject lifeboatPrefab;
