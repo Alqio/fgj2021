@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5118001673658823599}
   - component: {fileID: 49188670697993818}
   - component: {fileID: 4513274175136299005}
+  - component: {fileID: -3652072045573962296}
   m_Layer: 0
   m_Name: Lifeboat
   m_TagString: Lifeboat
@@ -141,3 +142,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.08
+--- !u!114 &-3652072045573962296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5118001673658823568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f48acd66a8541403197609dfaffb8441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 10
+  highPressure: {fileID: 103782256293896345, guid: ac98e914d7a674605bebf42ee130ba6c,
+    type: 3}
+  lowPressure: {fileID: 7301919786284065083, guid: d447c5ea2c5194a2785810fcd7d704d3,
+    type: 3}

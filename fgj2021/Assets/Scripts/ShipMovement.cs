@@ -17,7 +17,7 @@ public class ShipMovement : MonoBehaviour
         float random_y = Random.Range(-1.0f, 1.0f);
         initialDirection = Vector2.right;//new Vector2(random_x, random_y);
         initialDirection.Normalize();
-        lifeDuration = Random.Range(2, 5);
+        lifeDuration = Random.Range(15, 40);
         rb.AddForce(initialDirection*3.0f, ForceMode2D.Impulse);
         initialPosition = transform.position;
     }

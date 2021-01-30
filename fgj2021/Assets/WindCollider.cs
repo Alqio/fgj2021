@@ -15,6 +15,8 @@ public class WindCollider : MonoBehaviour
     void Update()
     {
         transform.position = (lowPressure.transform.position + highPressure.transform.position) / 2;
-        transform.localScale = new Vector3(transform.localScale.x, Vector3.Distance(lowPressure.transform.position, highPressure.transform.position) / 2, transform.localScale.z);
+        Vector3 scale = new Vector3(transform.localScale.x, Vector3.Distance(lowPressure.transform.position, highPressure.transform.position) / 2, transform.localScale.z);
+        scale.y *= 10;
+        transform.localScale = scale;
     }
 }
