@@ -25,6 +25,8 @@ public class Variables : MonoBehaviour
     private Color yellow = new Color(1, 1, 0, 1);
     private Color red = new Color(1, 0, 0, 1);
 
+    bool dying = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +71,15 @@ public class Variables : MonoBehaviour
         }
 
         if (thirst >= 100 || hunger >= 100) {
+            dying = true;
+        }
+
+        if (dying) {
+            var c = GetComponent<SpriteRenderer>().color;
+            GetComponent<SpriteRenderer>().color = Color.Lerp(c, new Color(c.r, c.g, c.b, 0f), 1 * Time.deltaTime);
+        }
+
+        if (GetComponent<SpriteRenderer>().color.a <= 0.01) {
             die();
         }
 
