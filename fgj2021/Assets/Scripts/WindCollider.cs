@@ -24,6 +24,7 @@ public class WindCollider : MonoBehaviour
                     distanceBetweenPressures *
                     scale *
                     Time.deltaTime;
+        Debug.Log("speed: " + speed.ToString());
         //Color newColor = new Color(distanceBetweenPressures * 255, distanceBetweenPressures * 255, distanceBetweenPressures * 255);
 
         //wind area rotation
@@ -36,7 +37,7 @@ public class WindCollider : MonoBehaviour
 
         //wind area scale
         Vector3 localScale = new Vector3(transform.localScale.x, Vector3.Distance(lowPressure.transform.position, highPressure.transform.position) / 2, transform.localScale.z);
-        localScale.y *= 10;
+        localScale.y *= 0.1f;
         transform.localScale = localScale;
     }
 

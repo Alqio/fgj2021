@@ -43,8 +43,8 @@ public class Variables : MonoBehaviour
         
         var forceDirection = new Vector2(Random.Range(-360, 360), Random.Range(-360, 360));
 
-        movingVelocity = Random.Range(0.0f, 5f);
-        rotationVelocity = Random.Range(0.0f, 30f);
+        movingVelocity = Random.Range(50.0f, 1000f);
+        rotationVelocity = Random.Range(-3000.0f, 3000f);
 
         body.AddForce(forceDirection * movingVelocity);
 
@@ -54,19 +54,18 @@ public class Variables : MonoBehaviour
 
     void Update() {
         if (rotationVelocity > 0) {
-            transform.eulerAngles = Vector3.forward * 45 * rotationVelocity;
-            rotationVelocity -= 0.01f;
+            transform.Rotate(Vector3.forward * rotationVelocity * Time.deltaTime);
+            //transform.eulerAngles = Vector3.forward * 45 * rotationVelocity;
+            rotationVelocity -= 5f;
         }
 
 
         if (hunger < 100) {
             hunger = Mathf.Min(hunger + 4f * Time.deltaTime, 100);
-            Debug.Log(hunger);
         }
 
         if (thirst < 100) {
             thirst = Mathf.Min(thirst + 8f * Time.deltaTime, 100);
-            Debug.Log(thirst);
         }
 
         if (thirst >= 100 || hunger >= 100) {

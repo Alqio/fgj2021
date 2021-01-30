@@ -23,9 +23,8 @@ public class SpawnLifeboats : MonoBehaviour
             var y = tr.position.y + Random.Range(-0.2f, 0.2f);
 
             var rotX = Random.Range(0f, 360f);
-            var rotY = Random.Range(0f, 360f);
 
-            Quaternion rotation = Quaternion.Euler(rotX, 0, 0);
+            Quaternion rotation = Quaternion.Euler(0, 0, rotX);
 
             GameObject lifeboat = Instantiate(lifeboatPrefab, new Vector3(x, y, 0), rotation);
 

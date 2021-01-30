@@ -23,7 +23,7 @@ public class ShipMovement : MonoBehaviour
         float random_y = Random.Range(-1.0f, 1.0f);
         initialDirection = Vector2.right;//new Vector2(random_x, random_y);
         initialDirection.Normalize();
-        lifeDuration = Random.Range(15, 40);
+        lifeDuration = Random.Range(1500, 4000);
         // rb.AddForce(initialDirection*3.0f, ForceMode2D.Impulse);
         initialPosition = transform.position;
 
@@ -63,19 +63,19 @@ public class ShipMovement : MonoBehaviour
         
         if(allLifeBoats.Length == 0)//collidersHit.Length == 0)
         {
-            Debug.Log("YES NO COLLISIONS");
+            //Debug.Log("YES NO COLLISIONS");
             return targetPosition;
         }
         else
         {
-            Debug.Log("YES SOMETHING IS HERE!");
+           // Debug.Log("YES SOMETHING IS HERE!");
             int i = 0;
             while(i < allLifeBoats.Length)
             {
                 GameObject targetObject = allLifeBoats[i];//.gameObject;
                 if (targetObject != null)// && targetObject.tag == "LifeBoat")
                 {
-                    Debug.Log("YES!");
+                    //Debug.Log("YES!");
                     if ((targetObject.transform.position - transform.position).magnitude < 1.0f)
                     {
                         return targetObject.transform.position;
@@ -83,7 +83,7 @@ public class ShipMovement : MonoBehaviour
                 }
                 i++;
             }
-            Debug.Log("YES NO!");
+            //Debug.Log("YES NO!");
             return targetPosition;
         }
 

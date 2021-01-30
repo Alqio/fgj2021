@@ -188,4 +188,4 @@ MonoBehaviour:
   lowPressure: {fileID: 0}
   highPressure: {fileID: 0}
   scale: 100
-  maxDistance: 50
+  maxDistance: 1000
