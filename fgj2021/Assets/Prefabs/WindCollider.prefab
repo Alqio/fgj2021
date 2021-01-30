@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6655600490948909059}
   - component: {fileID: 6655600490948909056}
-  - component: {fileID: 6655600490948909057}
   - component: {fileID: 6655600490948909085}
   - component: {fileID: 6655600490948909058}
+  - component: {fileID: 1973553700459628565}
   m_Layer: 0
   m_Name: WindCollider
   m_TagString: WindArea
@@ -60,22 +60,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
---- !u!114 &6655600490948909057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6655600490948909062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf48e3150122421ea5c6d67b0277a20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lowPressure: {fileID: 0}
-  highPressure: {fileID: 0}
-  scale: 0.1
-  maxDistance: 50
 --- !u!1971053207 &6655600490948909085
 SpriteShapeRenderer:
   m_ObjectHideFlags: 0
@@ -189,3 +173,19 @@ MonoBehaviour:
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
   m_GeometryCached: 0
+--- !u!114 &1973553700459628565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6655600490948909062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaaa69d0e2fc84f2fa24e0376dd94884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowPressure: {fileID: 0}
+  highPressure: {fileID: 0}
+  scale: 0.1
+  maxDistance: 50

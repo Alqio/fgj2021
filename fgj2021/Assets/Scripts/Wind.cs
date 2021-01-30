@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class wind : MonoBehaviour
+public class Wind : MonoBehaviour
 {
 
     public GameObject windColliderPrefab;
+    public float tooCloseDistance;
     private GameObject[] otherWinds;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,20 @@ public class wind : MonoBehaviour
         }
 
 
+    }
+
+    public bool IsTooCloseAfter(Vector2 m)
+    {
+        bool tooClose = false;
+        foreach (var other in otherWinds)
+        {
+            if (Vector2.Distance((Vector2)transform.position + m, other.transform.position) < tooCloseDistance)
+            {
+                tooClose = true;
+                break;
+            }
+        }
+        return tooClose;
     }
 
 }

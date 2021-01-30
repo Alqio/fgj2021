@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WindEffect : MonoBehaviour
 {
-    public float thrust;
     private Rigidbody2D rb;
     private GameObject[] windColliders;
 

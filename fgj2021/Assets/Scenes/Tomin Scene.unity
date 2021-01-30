@@ -138,9 +138,9 @@ GameObject:
   - component: {fileID: 120490464}
   - component: {fileID: 120490469}
   - component: {fileID: 120490468}
-  - component: {fileID: 120490467}
   - component: {fileID: 120490466}
   - component: {fileID: 120490465}
+  - component: {fileID: 120490467}
   m_Layer: 0
   m_Name: Objekti (8)
   m_TagString: Untagged
@@ -208,10 +208,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 120490463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f48acd66a8541403197609dfaffb8441, type: 3}
+  m_Script: {fileID: 11500000, guid: 619ae866f5ba941678562d74418e062e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 0.1
 --- !u!114 &120490468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,9 +559,9 @@ GameObject:
   - component: {fileID: 780490459}
   - component: {fileID: 780490464}
   - component: {fileID: 780490463}
-  - component: {fileID: 780490462}
   - component: {fileID: 780490461}
   - component: {fileID: 780490460}
+  - component: {fileID: 780490462}
   m_Layer: 0
   m_Name: Objekti (10)
   m_TagString: Untagged
@@ -630,10 +629,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 780490458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f48acd66a8541403197609dfaffb8441, type: 3}
+  m_Script: {fileID: 11500000, guid: 619ae866f5ba941678562d74418e062e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 0.1
 --- !u!114 &780490463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,9 +831,9 @@ GameObject:
   - component: {fileID: 935436550}
   - component: {fileID: 935436555}
   - component: {fileID: 935436554}
-  - component: {fileID: 935436553}
   - component: {fileID: 935436552}
   - component: {fileID: 935436551}
+  - component: {fileID: 935436553}
   m_Layer: 0
   m_Name: Objekti (9)
   m_TagString: Untagged
@@ -903,10 +901,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 935436549}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f48acd66a8541403197609dfaffb8441, type: 3}
+  m_Script: {fileID: 11500000, guid: 619ae866f5ba941678562d74418e062e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 0.1
 --- !u!114 &935436554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1079,9 +1076,9 @@ GameObject:
   - component: {fileID: 1148737694}
   - component: {fileID: 1148737699}
   - component: {fileID: 1148737698}
-  - component: {fileID: 1148737697}
   - component: {fileID: 1148737696}
   - component: {fileID: 1148737695}
+  - component: {fileID: 1148737697}
   m_Layer: 0
   m_Name: Objekti (3)
   m_TagString: Untagged
@@ -1149,10 +1146,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1148737693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f48acd66a8541403197609dfaffb8441, type: 3}
+  m_Script: {fileID: 11500000, guid: 619ae866f5ba941678562d74418e062e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 0.1
 --- !u!114 &1148737698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1313,9 +1309,9 @@ GameObject:
   - component: {fileID: 1205473325}
   - component: {fileID: 1205473330}
   - component: {fileID: 1205473329}
-  - component: {fileID: 1205473328}
   - component: {fileID: 1205473327}
   - component: {fileID: 1205473326}
+  - component: {fileID: 1205473328}
   m_Layer: 0
   m_Name: Objekti (6)
   m_TagString: Untagged
@@ -1383,10 +1379,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1205473324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f48acd66a8541403197609dfaffb8441, type: 3}
+  m_Script: {fileID: 11500000, guid: 619ae866f5ba941678562d74418e062e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 0.1
 --- !u!114 &1205473329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1630,9 +1625,9 @@ GameObject:
   - component: {fileID: 1567598188}
   - component: {fileID: 1567598193}
   - component: {fileID: 1567598192}
-  - component: {fileID: 1567598191}
   - component: {fileID: 1567598190}
   - component: {fileID: 1567598189}
+  - component: {fileID: 1567598191}
   m_Layer: 0
   m_Name: Objekti (7)
   m_TagString: Untagged
@@ -1700,10 +1695,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1567598187}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f48acd66a8541403197609dfaffb8441, type: 3}
+  m_Script: {fileID: 11500000, guid: 619ae866f5ba941678562d74418e062e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 0.1
 --- !u!114 &1567598192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1870,9 +1864,9 @@ GameObject:
   - component: {fileID: 1682467936}
   - component: {fileID: 1682467941}
   - component: {fileID: 1682467940}
-  - component: {fileID: 1682467939}
   - component: {fileID: 1682467938}
   - component: {fileID: 1682467937}
+  - component: {fileID: 1682467939}
   m_Layer: 0
   m_Name: Objekti (5)
   m_TagString: Untagged
@@ -1940,10 +1934,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1682467935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f48acd66a8541403197609dfaffb8441, type: 3}
+  m_Script: {fileID: 11500000, guid: 619ae866f5ba941678562d74418e062e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 0.1
 --- !u!114 &1682467940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2104,9 +2097,9 @@ GameObject:
   - component: {fileID: 1763100069}
   - component: {fileID: 1763100074}
   - component: {fileID: 1763100073}
-  - component: {fileID: 1763100072}
   - component: {fileID: 1763100071}
   - component: {fileID: 1763100070}
+  - component: {fileID: 1763100072}
   m_Layer: 0
   m_Name: Objekti (4)
   m_TagString: Untagged
@@ -2174,10 +2167,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1763100068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f48acd66a8541403197609dfaffb8441, type: 3}
+  m_Script: {fileID: 11500000, guid: 619ae866f5ba941678562d74418e062e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 0.1
 --- !u!114 &1763100073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2338,9 +2330,9 @@ GameObject:
   - component: {fileID: 2062774318}
   - component: {fileID: 2062774323}
   - component: {fileID: 2062774322}
-  - component: {fileID: 2062774321}
   - component: {fileID: 2062774320}
   - component: {fileID: 2062774319}
+  - component: {fileID: 2062774321}
   m_Layer: 0
   m_Name: Objekti (2)
   m_TagString: Untagged
@@ -2408,10 +2400,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2062774317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f48acd66a8541403197609dfaffb8441, type: 3}
+  m_Script: {fileID: 11500000, guid: 619ae866f5ba941678562d74418e062e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 0.1
 --- !u!114 &2062774322
 MonoBehaviour:
   m_ObjectHideFlags: 0

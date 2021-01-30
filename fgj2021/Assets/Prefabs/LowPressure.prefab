@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7301919786284065085}
   - component: {fileID: 7301919786284065082}
   - component: {fileID: 7301919786284065087}
-  - component: {fileID: 7301919786284065086}
-  - component: {fileID: 7301919786284065089}
+  - component: {fileID: 6631093849820904403}
+  - component: {fileID: 7769330360337833927}
   m_Layer: 0
   m_Name: LowPressure
   m_TagString: LowPressure
@@ -164,7 +164,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.00000023841858}
   serializedVersion: 2
   m_Radius: 15
---- !u!114 &7301919786284065086
+--- !u!114 &6631093849820904403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,11 +173,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7301919786284065083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22b2ff8a66f7843d2bd3c3d986e084e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 882d041cc57924f7897d73a2620655ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windColliderPrefab: {fileID: 0}
---- !u!114 &7301919786284065089
+  windColliderPrefab: {fileID: 6655600490948909062, guid: 257fef035a6534cea8ca0798297df3b4,
+    type: 3}
+  tooCloseDistance: 10
+--- !u!114 &7769330360337833927
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,7 +188,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7301919786284065083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4c24437990ace24d8c859b0ef12ae06, type: 3}
+  m_Script: {fileID: 11500000, guid: affd136adb73e4bc1a4b92b20ab6bbf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 1.5
