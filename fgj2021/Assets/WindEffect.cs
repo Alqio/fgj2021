@@ -19,18 +19,19 @@ public class WindEffect : MonoBehaviour
         if (rb.IsTouching(windCollider))
         {
             rb.AddForce(
-                (highPressure.transform.position - lowPressure.transform.position) *
-                NormalizeDist(Vector2.Distance(lowPressure.transform.position, highPressure.transform.position), 15) *
+                (lowPressure.transform.position - highPressure.transform.position) *
+                NormalizeDist(Vector2.Distance(lowPressure.transform.position, highPressure.transform.position), 50) *
                 thrust *
-                Time.deltaTime, ForceMode2D.Impulse
+                Time.deltaTime
             );
         }
     }
 
     float NormalizeDist(float dist, float range)
     {
-        float value = -1 / range * dist + 1;
-        if (value > 1) return 0;
+        float value = (range - dist) / range;
+        Debug.Log(value);
+        if (value > 1 || value < 0) return 0;
         return value;
     }
 
