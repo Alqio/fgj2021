@@ -13,6 +13,7 @@ public class ShipSetup : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = sprites[randomBoatIndex];
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.mass = (sprites.Count - randomBoatIndex)*80;
+        GetComponent<CapsuleCollider2D>().size = GetComponent<SpriteRenderer>().sprite.bounds.size;
     }
 
     // Update is called once per frame

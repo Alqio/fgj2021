@@ -26,9 +26,9 @@ public class SpawnLifeboats : MonoBehaviour
 
             Quaternion rotation = Quaternion.Euler(0, 0, rotX);
 
-            GameObject lifeboat = Instantiate(lifeboatPrefab, new Vector3(x, y, 0), rotation);
-
-            //Variables variables = lifeboat.GetComponent<Variables>()
+            Transform parent = GameObject.FindGameObjectWithTag("MainCanvas").gameObject.transform;
+            GameObject lifeboat = Instantiate(lifeboatPrefab, new Vector3(x, y, 0), rotation, parent);
+            lifeboat.transform.SetParent(GameObject.FindGameObjectWithTag("MainCanvas").transform);
         }
     }
 }

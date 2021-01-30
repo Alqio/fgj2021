@@ -76,7 +76,7 @@ public class ShipMovement : MonoBehaviour
                 if (targetObject != null)// && targetObject.tag == "LifeBoat")
                 {
                     //Debug.Log("YES!");
-                    if ((targetObject.transform.position - transform.position).magnitude < 1.0f)
+                    if ((targetObject.transform.position - transform.position).magnitude < 100.0f)
                     {
                         return targetObject.transform.position;
                     }
@@ -92,7 +92,8 @@ public class ShipMovement : MonoBehaviour
 
     public void DestroyBoat()
     {
-        GameObject effectInstance = Instantiate(explosionParticleEffect, transform.position, transform.rotation);
+        Transform parent = GameObject.FindGameObjectWithTag("MainCanvas").gameObject.transform;
+        GameObject effectInstance = Instantiate(explosionParticleEffect, transform.position, transform.rotation, parent);
         effectInstance.GetComponent<ParticleSystem>().Play();
 
         SpawnLifeboats lifeBoatSpawner = GetComponent<SpawnLifeboats>();

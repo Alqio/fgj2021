@@ -23,15 +23,8 @@ public class RescueCollision : MonoBehaviour
         else if (other.gameObject.tag == "Boat" && !isDestroyed)
         {
             isDestroyed = true;
-            int rand_value = Random.Range(0,2);
-            if (rand_value == 1)
-            {
-                other.gameObject.GetComponent<ShipMovement>().DestroyBoat();
-            }
-            else
-            {
-                this.gameObject.GetComponent<ShipMovement>().DestroyBoat();
-            }
+            other.gameObject.GetComponent<ShipMovement>().DestroyBoat();
+            this.gameObject.GetComponent<ShipMovement>().DestroyBoat();
         }
     }
 }
