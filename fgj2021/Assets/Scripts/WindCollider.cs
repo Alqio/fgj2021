@@ -24,7 +24,7 @@ public class WindCollider : MonoBehaviour
                     distanceBetweenPressures *
                     scale *
                     Time.deltaTime;
-        Debug.Log("speed: " + speed.ToString());
+        //Debug.Log("speed: " + speed.ToString());
         //Color newColor = new Color(distanceBetweenPressures * 255, distanceBetweenPressures * 255, distanceBetweenPressures * 255);
 
         //wind area rotation

@@ -205,17 +205,36 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ClickMouse"",
+                    ""type"": ""Button"",
+                    ""id"": ""c5c2d27c-f550-4118-80c6-8afb311a1236"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""e768d98d-346f-4d06-aef5-58d62d262671"",
-                    ""path"": ""<Mouse>/delta"",
+                    ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MoveMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bb7e926e-a3b1-4933-9912-4e89f999371b"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClickMouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -232,6 +251,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""MenuMove"",
+                    ""type"": ""Button"",
+                    ""id"": ""effeb41a-0fe4-419e-ada5-936bfc24d1fe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -243,6 +270,99 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Arrows"",
+                    ""id"": ""d549d29b-5823-414b-ab21-f79f32dc65b4"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuMove"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""dbce3c85-e1bc-49bb-91fe-1c85b0e617b6"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""18e37fe5-8cf9-459f-a9f7-658b2650770b"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""6454df85-b03c-430b-8691-92bf8ab5e539"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuMove"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""4cd6ca60-f274-490d-9fc0-6975eef43a6a"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""263b99e7-5fca-455c-bc07-a8cd6a334444"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""GameplayTouchscreen"",
+            ""id"": ""40b88df6-b3b1-4ecd-a0be-2f9acc66620a"",
+            ""actions"": [
+                {
+                    ""name"": ""Tap"",
+                    ""type"": ""Button"",
+                    ""id"": ""a22606db-31fd-42f3-afee-c8832d69b974"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""7c124945-5ff4-45dd-9389-74cf1c97675a"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Tap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -262,9 +382,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // GameplayMouse
         m_GameplayMouse = asset.FindActionMap("GameplayMouse", throwIfNotFound: true);
         m_GameplayMouse_MoveMouse = m_GameplayMouse.FindAction("MoveMouse", throwIfNotFound: true);
+        m_GameplayMouse_ClickMouse = m_GameplayMouse.FindAction("ClickMouse", throwIfNotFound: true);
         // MenuActions
         m_MenuActions = asset.FindActionMap("MenuActions", throwIfNotFound: true);
         m_MenuActions_Pause = m_MenuActions.FindAction("Pause", throwIfNotFound: true);
+        m_MenuActions_MenuMove = m_MenuActions.FindAction("MenuMove", throwIfNotFound: true);
+        // GameplayTouchscreen
+        m_GameplayTouchscreen = asset.FindActionMap("GameplayTouchscreen", throwIfNotFound: true);
+        m_GameplayTouchscreen_Tap = m_GameplayTouchscreen.FindAction("Tap", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -397,11 +522,13 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_GameplayMouse;
     private IGameplayMouseActions m_GameplayMouseActionsCallbackInterface;
     private readonly InputAction m_GameplayMouse_MoveMouse;
+    private readonly InputAction m_GameplayMouse_ClickMouse;
     public struct GameplayMouseActions
     {
         private @PlayerControls m_Wrapper;
         public GameplayMouseActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveMouse => m_Wrapper.m_GameplayMouse_MoveMouse;
+        public InputAction @ClickMouse => m_Wrapper.m_GameplayMouse_ClickMouse;
         public InputActionMap Get() { return m_Wrapper.m_GameplayMouse; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -414,6 +541,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @MoveMouse.started -= m_Wrapper.m_GameplayMouseActionsCallbackInterface.OnMoveMouse;
                 @MoveMouse.performed -= m_Wrapper.m_GameplayMouseActionsCallbackInterface.OnMoveMouse;
                 @MoveMouse.canceled -= m_Wrapper.m_GameplayMouseActionsCallbackInterface.OnMoveMouse;
+                @ClickMouse.started -= m_Wrapper.m_GameplayMouseActionsCallbackInterface.OnClickMouse;
+                @ClickMouse.performed -= m_Wrapper.m_GameplayMouseActionsCallbackInterface.OnClickMouse;
+                @ClickMouse.canceled -= m_Wrapper.m_GameplayMouseActionsCallbackInterface.OnClickMouse;
             }
             m_Wrapper.m_GameplayMouseActionsCallbackInterface = instance;
             if (instance != null)
@@ -421,6 +551,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @MoveMouse.started += instance.OnMoveMouse;
                 @MoveMouse.performed += instance.OnMoveMouse;
                 @MoveMouse.canceled += instance.OnMoveMouse;
+                @ClickMouse.started += instance.OnClickMouse;
+                @ClickMouse.performed += instance.OnClickMouse;
+                @ClickMouse.canceled += instance.OnClickMouse;
             }
         }
     }
@@ -430,11 +563,13 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_MenuActions;
     private IMenuActionsActions m_MenuActionsActionsCallbackInterface;
     private readonly InputAction m_MenuActions_Pause;
+    private readonly InputAction m_MenuActions_MenuMove;
     public struct MenuActionsActions
     {
         private @PlayerControls m_Wrapper;
         public MenuActionsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Pause => m_Wrapper.m_MenuActions_Pause;
+        public InputAction @MenuMove => m_Wrapper.m_MenuActions_MenuMove;
         public InputActionMap Get() { return m_Wrapper.m_MenuActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -447,6 +582,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnPause;
+                @MenuMove.started -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnMenuMove;
+                @MenuMove.performed -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnMenuMove;
+                @MenuMove.canceled -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnMenuMove;
             }
             m_Wrapper.m_MenuActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -454,10 +592,46 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @MenuMove.started += instance.OnMenuMove;
+                @MenuMove.performed += instance.OnMenuMove;
+                @MenuMove.canceled += instance.OnMenuMove;
             }
         }
     }
     public MenuActionsActions @MenuActions => new MenuActionsActions(this);
+
+    // GameplayTouchscreen
+    private readonly InputActionMap m_GameplayTouchscreen;
+    private IGameplayTouchscreenActions m_GameplayTouchscreenActionsCallbackInterface;
+    private readonly InputAction m_GameplayTouchscreen_Tap;
+    public struct GameplayTouchscreenActions
+    {
+        private @PlayerControls m_Wrapper;
+        public GameplayTouchscreenActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Tap => m_Wrapper.m_GameplayTouchscreen_Tap;
+        public InputActionMap Get() { return m_Wrapper.m_GameplayTouchscreen; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GameplayTouchscreenActions set) { return set.Get(); }
+        public void SetCallbacks(IGameplayTouchscreenActions instance)
+        {
+            if (m_Wrapper.m_GameplayTouchscreenActionsCallbackInterface != null)
+            {
+                @Tap.started -= m_Wrapper.m_GameplayTouchscreenActionsCallbackInterface.OnTap;
+                @Tap.performed -= m_Wrapper.m_GameplayTouchscreenActionsCallbackInterface.OnTap;
+                @Tap.canceled -= m_Wrapper.m_GameplayTouchscreenActionsCallbackInterface.OnTap;
+            }
+            m_Wrapper.m_GameplayTouchscreenActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Tap.started += instance.OnTap;
+                @Tap.performed += instance.OnTap;
+                @Tap.canceled += instance.OnTap;
+            }
+        }
+    }
+    public GameplayTouchscreenActions @GameplayTouchscreen => new GameplayTouchscreenActions(this);
     public interface IGameplaySticksActions
     {
         void OnMoveRight(InputAction.CallbackContext context);
@@ -471,9 +645,15 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IGameplayMouseActions
     {
         void OnMoveMouse(InputAction.CallbackContext context);
+        void OnClickMouse(InputAction.CallbackContext context);
     }
     public interface IMenuActionsActions
     {
         void OnPause(InputAction.CallbackContext context);
+        void OnMenuMove(InputAction.CallbackContext context);
+    }
+    public interface IGameplayTouchscreenActions
+    {
+        void OnTap(InputAction.CallbackContext context);
     }
 }

@@ -11,6 +11,9 @@ public class RightCube : MonoBehaviour
 
     Vector2 move;
 
+    bool mouseDragging = false;
+    Vector2 mousePivot;
+    Vector2 mouseTarget;
     PlayerControls controls;
 
     // Start is called before the first frame update
@@ -24,12 +27,28 @@ public class RightCube : MonoBehaviour
         controls.GameplayKeyboard.Arrows.performed += ctx => move = ctx.ReadValue<Vector2>();
         controls.GameplayKeyboard.Arrows.canceled += ctx => move = Vector2.zero;
 
-        //controls.GameplayMouse.MoveMouse.performed += ctx => move = ctx.ReadValue<Vector2>();
+        controls.GameplayMouse.MoveMouse.performed += ctx =>
+        {
+            if (mouseDragging)
+            {
+                mouseTarget = ctx.ReadValue<Vector2>();
+                move = (mouseTarget - mousePivot).normalized;
+            }
+            else
+            {
+                mousePivot = ctx.ReadValue<Vector2>();
+                move = Vector2.zero;
+            }
+        };
         //controls.GameplayMouse.MoveMouse.canceled += ctx => move = Vector2.zero;
+
+        controls.GameplayMouse.ClickMouse.performed += ctx => mouseDragging = true;
+        controls.GameplayMouse.ClickMouse.canceled += ctx => mouseDragging = false;
     }
 
     void Update()
     {
+
         Vector2 m = new Vector2(move.x, move.y) * moveSpeed * Time.deltaTime;
         if (!GetComponent<Wind>().IsTooCloseAfter(m))
         {
@@ -41,7 +60,7 @@ public class RightCube : MonoBehaviour
     {
         controls.GameplaySticks.Enable();
         controls.GameplayKeyboard.Enable();
-        //controls.GameplayMouse.Enable();
+        controls.GameplayMouse.Enable();
 
 
     }
@@ -50,7 +69,7 @@ public class RightCube : MonoBehaviour
     {
         controls.GameplaySticks.Disable();
         controls.GameplayKeyboard.Disable();
-        //controls.GameplayMouse.Disable();
+        controls.GameplayMouse.Disable();
 
     }
 
