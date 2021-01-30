@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6655600490948909062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 10, z: 0}
-  m_LocalScale: {x: 20, y: 10, z: 1}
+  m_LocalScale: {x: 60, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -189,6 +189,6 @@ MonoBehaviour:
   highPressure: {fileID: 0}
   windTrailPrefab: {fileID: 3133878408441627968, guid: 0b5966b3725b8446c93db93a90ab3a77,
     type: 3}
-  scale: 0.1
-  maxDistance: 50
+  scale: 100
+  maxDistance: 7000
   trailFrequency: 4

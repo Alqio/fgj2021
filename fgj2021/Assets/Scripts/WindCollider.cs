@@ -32,15 +32,27 @@ public class WindCollider : MonoBehaviour
                     Time.deltaTime;
         if (Random.Range(0, trailFrequency) == 1)
         {
-            GameObject w = Instantiate(windTrailPrefab, RandomPointInBounds(GetComponent<Collider2D>().bounds), new Quaternion(0, 0, 0, 0), windTrailObjects.transform);
+            //Transform parent = GameObject.FindGameObjectWithTag("MainCanvas").gameObject.transform;
+            Vector2 point = RandomPointInBounds(GetComponent<Collider2D>().bounds);
+            GameObject w = Instantiate(windTrailPrefab, point, new Quaternion(0, 0, 0, 0), windTrailObjects.transform);
             windTrails.Add(w);
         }
         foreach (var windTrail in windTrails)
         {
-            if (windTrail && windTrail.GetComponent<WindTrail>().lifetime < 1.0f && GetComponent<Collider2D>().bounds.Contains(windTrail.transform.position))
+            if (windTrail)
             {
+                // Debug.Log(GetComponent<Collider2D>().bounds.Contains(windTrail.transform.position));
+                Debug.Log(GetComponent<Collider2D>().bounds.ClosestPoint(windTrail.transform.position));
+                Debug.Log(windTrail.transform.position);
+                Vector3 closestPoint = GetComponent<Collider2D>().bounds.ClosestPoint(windTrail.transform.position);
+                Vector2 closestPoint2D = (Vector2) closestPoint;
+                
+                Vector2 windTrailPosition = (Vector2) windTrail.transform.position; // closestPoint2D == windTrailPosition
+                if (windTrail && windTrail.GetComponent<WindTrail>().lifetime < 1.0f)// && closestPoint2D == windTrailPosition)//GetComponent<Collider2D>().bounds.Contains( (Vector2) windTrail.transform.position))
+                {
 
-                windTrail.transform.Translate((lowPressure.transform.position - highPressure.transform.position) * 0.5f * Time.deltaTime);
+                    windTrail.transform.Translate((lowPressure.transform.position - highPressure.transform.position) * 0.5f * Time.deltaTime);
+                }
             }
         }
 
@@ -55,7 +67,7 @@ public class WindCollider : MonoBehaviour
         //wind area scale
         Vector3 localScale = new Vector3(transform.localScale.x, Vector3.Distance(lowPressure.transform.position, highPressure.transform.position) / 2, transform.localScale.z);
         float canvasScale = GameObject.FindGameObjectWithTag("MainCanvas").transform.localScale.x;
-        localScale.y *= 0.1f / canvasScale;
+        localScale.y *= 0.2f / canvasScale;
         transform.localScale = localScale;
     }
 
