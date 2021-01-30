@@ -7,8 +7,8 @@ public class GameManagerScript : MonoBehaviour
     public Text deathsText;
     public Text savedText;
 
-    private int saved;
-    private int deaths;
+    public int saved;
+    public int deaths;
 
     public int lives;
 

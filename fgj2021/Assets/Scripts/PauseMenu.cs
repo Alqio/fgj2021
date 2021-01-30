@@ -21,6 +21,16 @@ public class PauseMenu : MonoBehaviour
         //controls.MenuActions.Pause.canceled += ctx => move = Vector2.zero;
     }
 
+    void Start() {
+        GameIsPaused = false;
+        Time.timeScale = 1f;
+    }
+
+    void Update() {
+        Debug.Log(Time.timeScale);
+        
+    }
+
     void PauseGame() {
         if(GameIsPaused)
         {
@@ -46,6 +56,13 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Pause()
