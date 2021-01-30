@@ -10,9 +10,10 @@ public class MainMenu : MonoBehaviour
 
     }
 
-    public void Start()
+    public void StartGame()
     {
-        SceneManager.LoadScene("LassinMainMenu");
+        
+        SceneManager.LoadScene("LassinGameScene");
     }
 
     public void QuitGame()
