@@ -15,7 +15,7 @@ public class ShipMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         float random_x = Random.Range(-1.0f, 1.0f);
         float random_y = Random.Range(-1.0f, 1.0f);
-        initialDirection = new Vector2(random_x, random_y);
+        initialDirection = Vector2.right;//new Vector2(random_x, random_y);
         initialDirection.Normalize();
         lifeDuration = Random.Range(2, 5);
         rb.AddForce(initialDirection*3.0f, ForceMode2D.Impulse);

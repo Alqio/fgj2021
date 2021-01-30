@@ -14,8 +14,8 @@ public class GameManagerScript : MonoBehaviour
     }
 
     void Start() {
-        SpawnLifeboats lifeboats = GetComponent<SpawnLifeboats>();
-        lifeboats.Spawn();
+        //SpawnLifeboats lifeboats = GetComponent<SpawnLifeboats>();
+        //lifeboats.Spawn();
     }
 
     public string getName() {

@@ -6,6 +6,7 @@ public class ShipSpawner : MonoBehaviour
 
     public GameObject gameObjectToSpawn;
     public float spawnRate = 3.0f;
+    // public Vector2 spawnDirection;
 
     void Start()
     {
@@ -14,6 +15,6 @@ public class ShipSpawner : MonoBehaviour
 
     void SpawnShip()
     {
-        Instantiate(gameObjectToSpawn, transform.position, transform.rotation);
+        GameObject ship = Instantiate(gameObjectToSpawn, transform.position, transform.rotation);
     }
 }

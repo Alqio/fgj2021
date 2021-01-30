@@ -39,7 +39,7 @@ public class Variables : MonoBehaviour
             transform.eulerAngles = Vector3.forward * 45 * rotationVelocity;
             rotationVelocity -= 0.01f;
         }
-        Debug.Log(trans.position.x);
+        // Debug.Log(trans.position.x);
     }
     void OnGUI()
     {
