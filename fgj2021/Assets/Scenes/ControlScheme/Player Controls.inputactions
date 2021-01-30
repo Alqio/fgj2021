@@ -180,6 +180,33 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "GameplayMouse",
+            "id": "e4e720db-9457-4b45-ae3d-2d899854ab1c",
+            "actions": [
+                {
+                    "name": "MoveMouse",
+                    "type": "PassThrough",
+                    "id": "788baae4-1d6c-45f9-a3b6-1871fbe120bd",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e768d98d-346f-4d06-aef5-58d62d262671",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveMouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
