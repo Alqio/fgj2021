@@ -9,10 +9,11 @@ public class PressureController : MonoBehaviour
 
     public float moveSpeed = 1.5f;
 
-    Vector2 move;
+    Vector2 moveRight;
+    Vector2 moveLeft;
 
     PlayerControls controls;
-    int selectedIndex;
+    bool inverted = false;
     private List<GameObject> pressureAreas = new List<GameObject>();
 
     // Start is called before the first frame update
@@ -23,19 +24,20 @@ public class PressureController : MonoBehaviour
 
         controls = new PlayerControls();
 
-        controls.GameplaySticks.MoveRight.performed += ctx => move = ctx.ReadValue<Vector2>();
-        controls.GameplaySticks.MoveRight.canceled += ctx => move = Vector2.zero;
-        controls.GameplaySticks.SwitchIncrease.performed += ctx => IncreasePressureIndex();
-        controls.GameplaySticks.SwitchDecrease.performed += ctx => DecreasePressureIndex();
+        controls.GameplaySticks.MoveRight.performed += ctx => moveRight = ctx.ReadValue<Vector2>();
+        controls.GameplaySticks.MoveRight.canceled += ctx => moveRight = Vector2.zero;
+        controls.GameplaySticks.MoveLeft.performed += ctx => moveLeft = ctx.ReadValue<Vector2>();
+        controls.GameplaySticks.MoveLeft.canceled += ctx => moveLeft = Vector2.zero;
+
+        controls.GameplaySticks.Switch.performed += ctx => SwitchPolarity();
 
 
-        //controls.GameplayKeyboard.Arrows.performed += ctx => move = ctx.ReadValue<Vector2>();
-        //controls.GameplayKeyboard.Arrows.canceled += ctx => move = Vector2.zero;
-        controls.GameplayKeyboard.WASD.performed += ctx => move = ctx.ReadValue<Vector2>();
-        controls.GameplayKeyboard.WASD.canceled += ctx => move = Vector2.zero;
+        controls.GameplayKeyboard.Arrows.performed += ctx => moveRight = ctx.ReadValue<Vector2>();
+        controls.GameplayKeyboard.Arrows.canceled += ctx => moveRight = Vector2.zero;
+        controls.GameplayKeyboard.WASD.performed += ctx => moveLeft = ctx.ReadValue<Vector2>();
+        controls.GameplayKeyboard.WASD.canceled += ctx => moveLeft = Vector2.zero;
 
-        controls.GameplayKeyboard.SwitchIncrease.performed += ctx => IncreasePressureIndex();
-        controls.GameplayKeyboard.SwitchDecrease.performed += ctx => DecreasePressureIndex();
+        controls.GameplayKeyboard.Switch.performed += ctx => SwitchPolarity();
 
         //controls.GameplayMouse.MoveMouse.performed += ctx => move = ctx.ReadValue<Vector2>();
         //controls.GameplayMouse.MoveMouse.canceled += ctx => move = Vector2.zero;
@@ -45,21 +47,22 @@ public class PressureController : MonoBehaviour
 
     void Update()
     {
-        Vector2 m = new Vector2(move.x, move.y) * moveSpeed * Time.deltaTime;
+        Vector2 m1 = new Vector2(moveRight.x, moveRight.y) * moveSpeed * Time.deltaTime;
+        Vector2 m2 = new Vector2(moveLeft.x, moveLeft.y) * moveSpeed * Time.deltaTime;
         /*if (!GetComponent<Wind>().IsTooCloseAfter(m))
         {
         }*/
+        List<Vector2> moves = new List<Vector2>();
+        moves.Add(m1);
+        moves.Add(m2);
+
+        if (inverted)
+        {
+            moves.Reverse();
+        }
         for (int i = 0; i < pressureAreas.Count; i++)
         {
-
-            if (i == selectedIndex)
-            {
-                pressureAreas[i].transform.Translate(m, Space.World);
-            }
-            else
-            {
-                pressureAreas[i].GetComponent<Wind>().TargetUpdate();
-            }
+            pressureAreas[i].transform.Translate(moves[i], Space.World);
         }
 
     }
@@ -81,27 +84,10 @@ public class PressureController : MonoBehaviour
 
     }
 
-    void IncreasePressureIndex()
+    void SwitchPolarity()
     {
-        if (selectedIndex == pressureAreas.Count - 1)
-        {
-            selectedIndex = 0;
-        }
-        else
-        {
-            selectedIndex += 1;
-        }
+        inverted = !inverted;
     }
-    void DecreasePressureIndex()
-    {
-        if (selectedIndex == 0)
-        {
-            selectedIndex = pressureAreas.Count - 1;
-        }
-        else
-        {
-            selectedIndex -= 1;
-        }
-    }
+
 
 }

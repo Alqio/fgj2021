@@ -25,8 +25,6 @@ public class RightCube : MonoBehaviour
 
         controls.GameplaySticks.MoveRight.performed += ctx => move = ctx.ReadValue<Vector2>();
         controls.GameplaySticks.MoveRight.canceled += ctx => move = Vector2.zero;
-        controls.GameplaySticks.SwitchIncrease.performed += ctx => IncreasePressureIndex();
-        controls.GameplaySticks.SwitchDecrease.performed += ctx => DecreasePressureIndex();
 
 
         //controls.GameplayKeyboard.Arrows.performed += ctx => move = ctx.ReadValue<Vector2>();
@@ -34,8 +32,6 @@ public class RightCube : MonoBehaviour
         controls.GameplayKeyboard.WASD.performed += ctx => move = ctx.ReadValue<Vector2>();
         controls.GameplayKeyboard.WASD.canceled += ctx => move = Vector2.zero;
 
-        controls.GameplayKeyboard.SwitchIncrease.performed += ctx => IncreasePressureIndex();
-        controls.GameplayKeyboard.SwitchDecrease.performed += ctx => DecreasePressureIndex();
 
         //controls.GameplayMouse.MoveMouse.performed += ctx => move = ctx.ReadValue<Vector2>();
         //controls.GameplayMouse.MoveMouse.canceled += ctx => move = Vector2.zero;

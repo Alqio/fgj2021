@@ -22,17 +22,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "SwitchIncrease",
+                    "name": "Switch",
                     "type": "Button",
-                    "id": "2169d6fe-07ad-4a4c-8a2b-51ac524de832",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "SwitchDecrease",
-                    "type": "Button",
-                    "id": "a2e54a52-d131-4316-b730-df77f43278dd",
+                    "id": "a6ebb9e8-788a-4005-8761-c3fc7dd1ca26",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -68,7 +60,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchIncrease",
+                    "action": "Switch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -79,7 +71,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchDecrease",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d64d8342-d439-4a6b-a5fc-be518e5eddef",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fd0e5f51-aa3c-425b-b939-3c44a37575f6",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -106,17 +120,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "SwitchIncrease",
+                    "name": "Switch",
                     "type": "Button",
                     "id": "3e3a908a-33b0-49f0-89fa-7187450eaf48",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "SwitchDecrease",
-                    "type": "Button",
-                    "id": "3937701f-d4d0-4848-b286-4c6e683137e8",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -236,22 +242,11 @@
                 {
                     "name": "",
                     "id": "c241350d-82e4-47c1-b38e-0e855d1bca60",
-                    "path": "<Keyboard>/l",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchIncrease",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "39c0d77e-ebfb-4665-8cf9-9f2a4a16fa53",
-                    "path": "<Keyboard>/j",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SwitchDecrease",
+                    "action": "Switch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
