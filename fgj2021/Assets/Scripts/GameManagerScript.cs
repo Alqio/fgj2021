@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
+    public int lives;
     public static GameManagerScript Instance { get; private set; }
     void Awake() {
         if (Instance == null) { 
@@ -18,6 +19,14 @@ public class GameManagerScript : MonoBehaviour
         //lifeboats.Spawn();
     }
 
+    public void lifeBoatDeath(string name) {
+        lives -= 1;
+        Debug.Log(name + " has died from hunger!");
+
+        if (lives < 0) {
+            Debug.Log("huutista");
+        }
+    }
     public string getName() {
         var nameScript = GetComponent<Names>();
         return nameScript.getName();

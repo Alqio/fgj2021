@@ -5,6 +5,8 @@ using UnityEngine;
 public class Variables : MonoBehaviour
 {
 
+    public float hunger;
+    public float thirst;
     public string personName;
     private Transform trans;
     private Rigidbody2D body;
@@ -15,12 +17,28 @@ public class Variables : MonoBehaviour
 
     public List<Sprite> sprites;
 
+    private SpriteRenderer hungerSpriteRect;
+
+    private SpriteRenderer thristSpriteRect;
+
+    private Color green = new Color(0, 1, 0, 1);
+    private Color yellow = new Color(1, 1, 0, 1);
+    private Color red = new Color(1, 0, 0, 1);
+
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         trans = GetComponent<Transform>();
+
+
+        hungerSpriteRect = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        thristSpriteRect = gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>();
+
         personName = GameManagerScript.Instance.getName();
+
+        hunger = Random.Range(0f, 40f);
+        thirst = Random.Range(0f, 20f);
 
         
         var forceDirection = new Vector2(Random.Range(-360, 360), Random.Range(-360, 360));
@@ -39,8 +57,58 @@ public class Variables : MonoBehaviour
             transform.eulerAngles = Vector3.forward * 45 * rotationVelocity;
             rotationVelocity -= 0.01f;
         }
-        // Debug.Log(trans.position.x);
+
+
+        if (hunger < 100) {
+            hunger = Mathf.Min(hunger + 4f * Time.deltaTime, 100);
+            Debug.Log(hunger);
+        }
+
+        if (thirst < 100) {
+            thirst = Mathf.Min(thirst + 8f * Time.deltaTime, 100);
+            Debug.Log(thirst);
+        }
+
+        if (thirst >= 100 || hunger >= 100) {
+            die();
+        }
+
+        setHungerColor();
+        setThirstColor();
+
     }
+
+    void setHungerColor() {
+        Color color;
+        if (hunger > 0 && hunger < 66) {
+            color = Color.Lerp(green, yellow, hunger / 66f);
+        } else {
+            color = Color.Lerp(yellow, red, (hunger - 66) / 33f);
+        }
+
+        hungerSpriteRect.color = color;
+
+    }
+
+    void setThirstColor() {
+        Color color;
+        if (thirst > 0 && thirst < 66) {
+            color = Color.Lerp(green, yellow, thirst / 66f);
+        } else {
+            color = Color.Lerp(yellow, red, (thirst - 66) / 33f);
+        }
+
+        thristSpriteRect.color = color;
+
+    }
+
+    void die()
+    {
+        GameManagerScript.Instance.lifeBoatDeath(personName);
+        Destroy(gameObject);
+    }
+
+
     void OnGUI()
     {
         var position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
