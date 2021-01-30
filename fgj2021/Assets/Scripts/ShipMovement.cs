@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ShipMovement : MonoBehaviour
 {
-    Vector2 initialDirection;
+    public GameObject explosionParticleEffect;
+    private Vector2 initialDirection;
     private Rigidbody2D rb;
     private float lifeDuration;
     private Vector2 initialPosition;
@@ -17,7 +18,7 @@ public class ShipMovement : MonoBehaviour
         float random_y = Random.Range(-1.0f, 1.0f);
         initialDirection = new Vector2(random_x, random_y);
         initialDirection.Normalize();
-        lifeDuration = Random.Range(1, 3);
+        lifeDuration = Random.Range(2, 5);
         rb.AddForce(initialDirection*3.0f, ForceMode2D.Impulse);
         initialPosition = transform.position;
     }
@@ -25,13 +26,18 @@ public class ShipMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.Translate(initial_direction  * Time.deltaTime, Camera.main.transform);
         float delta = (new Vector2(transform.position.x, transform.position.y) - initialPosition).magnitude;
 
-        if (delta > lifeDuration)
+        float speed = rb.velocity.magnitude;
+        if (delta > lifeDuration || speed <= 0)
         {
+            
+            GameObject effectInstance = Instantiate(explosionParticleEffect, transform.position, transform.rotation);
+            effectInstance.GetComponent<ParticleSystem>().Play();
+    
             SpawnLifeBoats lifeBoatSpawner = GetComponent<SpawnLifeBoats>();
             lifeBoatSpawner.Spawn();
+            
             DestroyImmediate(this.gameObject);
             return;
         }

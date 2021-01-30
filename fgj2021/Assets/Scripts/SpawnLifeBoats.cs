@@ -16,10 +16,10 @@ public class SpawnLifeBoats : MonoBehaviour
     // Update is called once per frame
     public void Spawn()
     {
-        int spawnAmount = Random.Range(0, 5);
+        int spawnAmount = Random.Range(1, 5);
 
         for (var i = 0; i < spawnAmount; i++) {
-               var x = tr.position.x + Random.Range(-0.2f, 0.2f);
+            var x = tr.position.x + Random.Range(-0.2f, 0.2f);
             var y = tr.position.y + Random.Range(-0.2f, 0.2f);
 
             var rotX = Random.Range(0f, 360f);
