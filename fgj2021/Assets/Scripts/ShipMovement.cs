@@ -11,6 +11,10 @@ public class ShipMovement : MonoBehaviour
     private Vector2 initialPosition;
     public Vector2 targetPosition;
 
+    public LayerMask layerMask;
+
+    private MemoryCollider detector;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +26,12 @@ public class ShipMovement : MonoBehaviour
         lifeDuration = Random.Range(15, 40);
         // rb.AddForce(initialDirection*3.0f, ForceMode2D.Impulse);
         initialPosition = transform.position;
+
+        detector = transform.Find("LifeDetector").GetComponent<MemoryCollider>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector2 position2d = new Vector2(transform.position.x, transform.position.y);
         float delta = (position2d - initialPosition).magnitude;
@@ -38,10 +44,50 @@ public class ShipMovement : MonoBehaviour
             return;
         }
         
-        Vector2 direction = (targetPosition - position2d).normalized;
+        Vector2 target = GetTarget();
+        Vector2 direction = (target - position2d).normalized;
 
         rb.AddForce(direction*forceMagnitude, ForceMode2D.Force);
         transform.rotation = Quaternion.LookRotation(Vector3.forward, rb.velocity);//initial_direction, Camera.main.transform.forward);//transform.forward, Camera.main.transform.forward);
+    }
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, transform.localScale);
+    }
+
+    Vector2 GetTarget()
+    {
+        //Collider2D collider = Physics2D.OverlapBox(gameObject.transform.position, gameObject.transform.localScale * 3, 0.0f);
+        GameObject[] allLifeBoats = GameObject.FindGameObjectsWithTag("Lifeboat");
+        
+        if(allLifeBoats.Length == 0)//collidersHit.Length == 0)
+        {
+            Debug.Log("YES NO COLLISIONS");
+            return targetPosition;
+        }
+        else
+        {
+            Debug.Log("YES SOMETHING IS HERE!");
+            int i = 0;
+            while(i < allLifeBoats.Length)
+            {
+                GameObject targetObject = allLifeBoats[i];//.gameObject;
+                if (targetObject != null)// && targetObject.tag == "LifeBoat")
+                {
+                    Debug.Log("YES!");
+                    if ((targetObject.transform.position - transform.position).magnitude < 1.0f)
+                    {
+                        return targetObject.transform.position;
+                    }
+                }
+                i++;
+            }
+            Debug.Log("YES NO!");
+            return targetPosition;
+        }
+
+        
     }
 
     public void DestroyBoat()

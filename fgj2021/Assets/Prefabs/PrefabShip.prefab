@@ -1,5 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2409937765270848897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2991006685278730789}
+  - component: {fileID: 216258677438200845}
+  - component: {fileID: 4692675307567359887}
+  m_Layer: 0
+  m_Name: LifeDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2991006685278730789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409937765270848897}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5847116043640205366}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &216258677438200845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409937765270848897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0f3b6d11ede4c4fb869ef8e43963a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collidingObjects: []
+--- !u!58 &4692675307567359887
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409937765270848897}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.78
 --- !u!1 &5847116043640205352
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,10 +92,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5847116043640205352}
-  m_LocalRotation: {x: 0, y: 0, z: -0.23173237, w: 0.9727796}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2991006685278730789}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -153,8 +215,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionParticleEffect: {fileID: 4067630610557629175, guid: 5cf4f66a7030db24dbae09ffe90b71a9,
     type: 3}
-  forceMagnitude: 88.3
+  forceMagnitude: 184.5
   targetPosition: {x: 9, y: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!70 &8049286722461817348
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -195,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48acd66a8541403197609dfaffb8441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 46.52
+  thrust: 55.08
   highPressure: {fileID: 103782256293896345, guid: ac98e914d7a674605bebf42ee130ba6c,
     type: 3}
   lowPressure: {fileID: 7301919786284065083, guid: d447c5ea2c5194a2785810fcd7d704d3,
