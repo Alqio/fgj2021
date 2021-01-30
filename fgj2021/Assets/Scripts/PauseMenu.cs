@@ -26,6 +26,8 @@ public class PauseMenu : MonoBehaviour
 
         controls.MenuActions.MenuMove.performed += ctx => menuMove = ctx.ReadValue<float>();
         controls.MenuActions.MenuMove.canceled += ctx => { menuMove = 0; menuDelay = menuWait; };
+
+        controls.MenuActions.MenuConfirm.performed += ctx => { Debug.Log("Confirm!"); };
     }
 
     void PauseGame()
@@ -46,7 +48,6 @@ public class PauseMenu : MonoBehaviour
         {
             menuPosition += menuMove;
             menuDelay = 0f;
-            Debug.Log(menuPosition);
         }
         menuDelay += Time.unscaledDeltaTime;
     }
@@ -65,6 +66,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         controls.MenuActions.MenuMove.Disable();
+        controls.MenuActions.MenuConfirm.Disable();
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
@@ -73,6 +75,7 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         controls.MenuActions.MenuMove.Enable();
+        controls.MenuActions.MenuConfirm.Enable();
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
