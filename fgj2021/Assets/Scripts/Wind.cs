@@ -9,6 +9,9 @@ public class Wind : MonoBehaviour
     public float tooCloseDistance;
     private GameObject[] otherWinds;
 
+    private float targetTime = 0f;
+    private Vector3 target;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,7 @@ public class Wind : MonoBehaviour
         {
             otherWinds = GameObject.FindGameObjectsWithTag("HighPressure");
         }
+        target = transform.position + new Vector3(Random.Range(30, -30), Random.Range(30, -30), 0);
     }
 
     // Update is called once per frame
@@ -51,6 +55,20 @@ public class Wind : MonoBehaviour
             }
         }
         return tooClose;
+    }
+
+    public void TargetUpdate()
+    {
+        if (targetTime > 10.0f)
+        {
+            target = transform.position + new Vector3(Random.Range(30, -30), Random.Range(30, -30), 0);
+            targetTime = 0f;
+        }
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, 1f * Time.deltaTime);
+        }
+        targetTime += Time.deltaTime;
     }
 
 }

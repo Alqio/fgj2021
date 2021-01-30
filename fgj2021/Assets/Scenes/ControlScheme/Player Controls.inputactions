@@ -20,6 +20,22 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "SwitchIncrease",
+                    "type": "Button",
+                    "id": "2169d6fe-07ad-4a4c-8a2b-51ac524de832",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SwitchDecrease",
+                    "type": "Button",
+                    "id": "a2e54a52-d131-4316-b730-df77f43278dd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -44,6 +60,28 @@
                     "action": "MoveLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d9b834fb-408d-4fc4-ab65-ff2485dc28d6",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchIncrease",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2ecc0d7f-6c0c-4d9c-90cc-260608e992af",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchDecrease",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -64,6 +102,22 @@
                     "type": "Value",
                     "id": "1e701cff-d476-4fcc-b7b0-2012fb5c4780",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SwitchIncrease",
+                    "type": "Button",
+                    "id": "3e3a908a-33b0-49f0-89fa-7187450eaf48",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SwitchDecrease",
+                    "type": "Button",
+                    "id": "3937701f-d4d0-4848-b286-4c6e683137e8",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -178,6 +232,28 @@
                     "action": "Arrows",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c241350d-82e4-47c1-b38e-0e855d1bca60",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchIncrease",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "39c0d77e-ebfb-4665-8cf9-9f2a4a16fa53",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchDecrease",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

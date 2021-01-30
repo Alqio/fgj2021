@@ -33,6 +33,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""SwitchIncrease"",
+                    ""type"": ""Button"",
+                    ""id"": ""2169d6fe-07ad-4a4c-8a2b-51ac524de832"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SwitchDecrease"",
+                    ""type"": ""Button"",
+                    ""id"": ""a2e54a52-d131-4316-b730-df77f43278dd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -57,6 +73,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""MoveLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d9b834fb-408d-4fc4-ab65-ff2485dc28d6"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchIncrease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2ecc0d7f-6c0c-4d9c-90cc-260608e992af"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchDecrease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -77,6 +115,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""1e701cff-d476-4fcc-b7b0-2012fb5c4780"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SwitchIncrease"",
+                    ""type"": ""Button"",
+                    ""id"": ""3e3a908a-33b0-49f0-89fa-7187450eaf48"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SwitchDecrease"",
+                    ""type"": ""Button"",
+                    ""id"": ""3937701f-d4d0-4848-b286-4c6e683137e8"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -191,6 +245,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Arrows"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c241350d-82e4-47c1-b38e-0e855d1bca60"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchIncrease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39c0d77e-ebfb-4665-8cf9-9f2a4a16fa53"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchDecrease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -255,10 +331,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_GameplaySticks = asset.FindActionMap("GameplaySticks", throwIfNotFound: true);
         m_GameplaySticks_MoveRight = m_GameplaySticks.FindAction("MoveRight", throwIfNotFound: true);
         m_GameplaySticks_MoveLeft = m_GameplaySticks.FindAction("MoveLeft", throwIfNotFound: true);
+        m_GameplaySticks_SwitchIncrease = m_GameplaySticks.FindAction("SwitchIncrease", throwIfNotFound: true);
+        m_GameplaySticks_SwitchDecrease = m_GameplaySticks.FindAction("SwitchDecrease", throwIfNotFound: true);
         // GameplayKeyboard
         m_GameplayKeyboard = asset.FindActionMap("GameplayKeyboard", throwIfNotFound: true);
         m_GameplayKeyboard_WASD = m_GameplayKeyboard.FindAction("WASD", throwIfNotFound: true);
         m_GameplayKeyboard_Arrows = m_GameplayKeyboard.FindAction("Arrows", throwIfNotFound: true);
+        m_GameplayKeyboard_SwitchIncrease = m_GameplayKeyboard.FindAction("SwitchIncrease", throwIfNotFound: true);
+        m_GameplayKeyboard_SwitchDecrease = m_GameplayKeyboard.FindAction("SwitchDecrease", throwIfNotFound: true);
         // GameplayMouse
         m_GameplayMouse = asset.FindActionMap("GameplayMouse", throwIfNotFound: true);
         m_GameplayMouse_MoveMouse = m_GameplayMouse.FindAction("MoveMouse", throwIfNotFound: true);
@@ -316,12 +396,16 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private IGameplaySticksActions m_GameplaySticksActionsCallbackInterface;
     private readonly InputAction m_GameplaySticks_MoveRight;
     private readonly InputAction m_GameplaySticks_MoveLeft;
+    private readonly InputAction m_GameplaySticks_SwitchIncrease;
+    private readonly InputAction m_GameplaySticks_SwitchDecrease;
     public struct GameplaySticksActions
     {
         private @PlayerControls m_Wrapper;
         public GameplaySticksActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveRight => m_Wrapper.m_GameplaySticks_MoveRight;
         public InputAction @MoveLeft => m_Wrapper.m_GameplaySticks_MoveLeft;
+        public InputAction @SwitchIncrease => m_Wrapper.m_GameplaySticks_SwitchIncrease;
+        public InputAction @SwitchDecrease => m_Wrapper.m_GameplaySticks_SwitchDecrease;
         public InputActionMap Get() { return m_Wrapper.m_GameplaySticks; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -337,6 +421,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @MoveLeft.started -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnMoveLeft;
                 @MoveLeft.performed -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnMoveLeft;
                 @MoveLeft.canceled -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnMoveLeft;
+                @SwitchIncrease.started -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnSwitchIncrease;
+                @SwitchIncrease.performed -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnSwitchIncrease;
+                @SwitchIncrease.canceled -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnSwitchIncrease;
+                @SwitchDecrease.started -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnSwitchDecrease;
+                @SwitchDecrease.performed -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnSwitchDecrease;
+                @SwitchDecrease.canceled -= m_Wrapper.m_GameplaySticksActionsCallbackInterface.OnSwitchDecrease;
             }
             m_Wrapper.m_GameplaySticksActionsCallbackInterface = instance;
             if (instance != null)
@@ -347,6 +437,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @MoveLeft.started += instance.OnMoveLeft;
                 @MoveLeft.performed += instance.OnMoveLeft;
                 @MoveLeft.canceled += instance.OnMoveLeft;
+                @SwitchIncrease.started += instance.OnSwitchIncrease;
+                @SwitchIncrease.performed += instance.OnSwitchIncrease;
+                @SwitchIncrease.canceled += instance.OnSwitchIncrease;
+                @SwitchDecrease.started += instance.OnSwitchDecrease;
+                @SwitchDecrease.performed += instance.OnSwitchDecrease;
+                @SwitchDecrease.canceled += instance.OnSwitchDecrease;
             }
         }
     }
@@ -357,12 +453,16 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private IGameplayKeyboardActions m_GameplayKeyboardActionsCallbackInterface;
     private readonly InputAction m_GameplayKeyboard_WASD;
     private readonly InputAction m_GameplayKeyboard_Arrows;
+    private readonly InputAction m_GameplayKeyboard_SwitchIncrease;
+    private readonly InputAction m_GameplayKeyboard_SwitchDecrease;
     public struct GameplayKeyboardActions
     {
         private @PlayerControls m_Wrapper;
         public GameplayKeyboardActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @WASD => m_Wrapper.m_GameplayKeyboard_WASD;
         public InputAction @Arrows => m_Wrapper.m_GameplayKeyboard_Arrows;
+        public InputAction @SwitchIncrease => m_Wrapper.m_GameplayKeyboard_SwitchIncrease;
+        public InputAction @SwitchDecrease => m_Wrapper.m_GameplayKeyboard_SwitchDecrease;
         public InputActionMap Get() { return m_Wrapper.m_GameplayKeyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -378,6 +478,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Arrows.started -= m_Wrapper.m_GameplayKeyboardActionsCallbackInterface.OnArrows;
                 @Arrows.performed -= m_Wrapper.m_GameplayKeyboardActionsCallbackInterface.OnArrows;
                 @Arrows.canceled -= m_Wrapper.m_GameplayKeyboardActionsCallbackInterface.OnArrows;
+                @SwitchIncrease.started -= m_Wrapper.m_GameplayKeyboardActionsCallbackInterface.OnSwitchIncrease;
+                @SwitchIncrease.performed -= m_Wrapper.m_GameplayKeyboardActionsCallbackInterface.OnSwitchIncrease;
+                @SwitchIncrease.canceled -= m_Wrapper.m_GameplayKeyboardActionsCallbackInterface.OnSwitchIncrease;
+                @SwitchDecrease.started -= m_Wrapper.m_GameplayKeyboardActionsCallbackInterface.OnSwitchDecrease;
+                @SwitchDecrease.performed -= m_Wrapper.m_GameplayKeyboardActionsCallbackInterface.OnSwitchDecrease;
+                @SwitchDecrease.canceled -= m_Wrapper.m_GameplayKeyboardActionsCallbackInterface.OnSwitchDecrease;
             }
             m_Wrapper.m_GameplayKeyboardActionsCallbackInterface = instance;
             if (instance != null)
@@ -388,6 +494,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Arrows.started += instance.OnArrows;
                 @Arrows.performed += instance.OnArrows;
                 @Arrows.canceled += instance.OnArrows;
+                @SwitchIncrease.started += instance.OnSwitchIncrease;
+                @SwitchIncrease.performed += instance.OnSwitchIncrease;
+                @SwitchIncrease.canceled += instance.OnSwitchIncrease;
+                @SwitchDecrease.started += instance.OnSwitchDecrease;
+                @SwitchDecrease.performed += instance.OnSwitchDecrease;
+                @SwitchDecrease.canceled += instance.OnSwitchDecrease;
             }
         }
     }
@@ -462,11 +574,15 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnMoveRight(InputAction.CallbackContext context);
         void OnMoveLeft(InputAction.CallbackContext context);
+        void OnSwitchIncrease(InputAction.CallbackContext context);
+        void OnSwitchDecrease(InputAction.CallbackContext context);
     }
     public interface IGameplayKeyboardActions
     {
         void OnWASD(InputAction.CallbackContext context);
         void OnArrows(InputAction.CallbackContext context);
+        void OnSwitchIncrease(InputAction.CallbackContext context);
+        void OnSwitchDecrease(InputAction.CallbackContext context);
     }
     public interface IGameplayMouseActions
     {
