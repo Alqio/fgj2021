@@ -14,6 +14,7 @@ public class ShipMovement : MonoBehaviour
     public LayerMask layerMask;
 
     private MemoryCollider detector;
+    public AudioClip sinkSound;
 
     // Start is called before the first frame update
     void Start()
@@ -96,8 +97,9 @@ public class ShipMovement : MonoBehaviour
         effectInstance.GetComponent<ParticleSystem>().Play();
 
         SpawnLifeboats lifeBoatSpawner = GetComponent<SpawnLifeboats>();
+        AudioSource.PlayClipAtPoint(sinkSound, transform.position, 4f);
+
         lifeBoatSpawner.Spawn();
-        
         Destroy(this.gameObject);
     }
 }
