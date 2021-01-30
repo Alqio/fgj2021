@@ -4,6 +4,7 @@ using UnityEngine;
 public class ShipMovement : MonoBehaviour
 {
     public GameObject explosionParticleEffect;
+    public float forceMagnitude = 40.0f;
     private Vector2 initialDirection;
     private Rigidbody2D rb;
     private float lifeDuration;
@@ -18,7 +19,7 @@ public class ShipMovement : MonoBehaviour
         initialDirection = Vector2.right;//new Vector2(random_x, random_y);
         initialDirection.Normalize();
         lifeDuration = Random.Range(15, 40);
-        rb.AddForce(initialDirection*3.0f, ForceMode2D.Impulse);
+        rb.AddForce(initialDirection*forceMagnitude, ForceMode2D.Impulse);
         initialPosition = transform.position;
     }
 

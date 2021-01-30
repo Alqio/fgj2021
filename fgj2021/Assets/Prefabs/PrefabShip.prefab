@@ -100,7 +100,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0.82
   m_AngularDrag: 17.06
   m_GravityScale: 1
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionParticleEffect: {fileID: 4067630610557629175, guid: 5cf4f66a7030db24dbae09ffe90b71a9,
     type: 3}
+  forceMagnitude: 30
 --- !u!70 &8049286722461817348
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
