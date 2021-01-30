@@ -19,6 +19,7 @@ public class RescueCollision : MonoBehaviour
         {
             Debug.Log("Rescued!");
             Destroy(other.gameObject);
+            GameManagerScript.Instance.rescueLifeBoat();
         }
         else if (other.gameObject.tag == "Boat" && !isDestroyed)
         {
