@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class ShipMovement : MonoBehaviour
 {
     public GameObject explosionParticleEffect;
@@ -35,7 +34,7 @@ public class ShipMovement : MonoBehaviour
             GameObject effectInstance = Instantiate(explosionParticleEffect, transform.position, transform.rotation);
             effectInstance.GetComponent<ParticleSystem>().Play();
     
-            SpawnLifeBoats lifeBoatSpawner = GetComponent<SpawnLifeBoats>();
+            SpawnLifeboats lifeBoatSpawner = GetComponent<SpawnLifeboats>();
             lifeBoatSpawner.Spawn();
             
             DestroyImmediate(this.gameObject);

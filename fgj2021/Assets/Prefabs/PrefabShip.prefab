@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5847116043640205364}
   - component: {fileID: 5571110639069781794}
   - component: {fileID: 3841084776578473849}
+  - component: {fileID: 9163355627874470522}
   m_Layer: 0
   m_Name: PrefabShip
   m_TagString: Untagged
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_Size: {x: 0.19, y: 0.63}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &5847116043640205364
@@ -114,9 +115,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5847116043640205352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da1f8fc175f52f4459bafc2d37f69d55, type: 3}
+  m_Script: {fileID: 11500000, guid: ec1724d0cfe996446b8828add1129c70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: c5f8825995d1c154a8c14146d5f6f5e2, type: 3}
+  - {fileID: 21300000, guid: c7dabe53b9828114fac1df8e6300ee65, type: 3}
+  - {fileID: 21300000, guid: b4e603128f3a5bd459166d7181f116a9, type: 3}
 --- !u!114 &3841084776578473849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,4 +135,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeboatPrefab: {fileID: 5118001673658823568, guid: 1cd0d6be4b7da404ab99f66e960ddddb,
+    type: 3}
+--- !u!114 &9163355627874470522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5847116043640205352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba5c178572673546a320ceaabe666c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionParticleEffect: {fileID: 4067630610557629175, guid: 5cf4f66a7030db24dbae09ffe90b71a9,
     type: 3}
