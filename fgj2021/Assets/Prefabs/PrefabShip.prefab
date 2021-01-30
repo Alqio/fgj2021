@@ -257,11 +257,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5847116043640205352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f48acd66a8541403197609dfaffb8441, type: 3}
+  m_Script: {fileID: 11500000, guid: 619ae866f5ba941678562d74418e062e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 55.08
-  highPressure: {fileID: 103782256293896345, guid: ac98e914d7a674605bebf42ee130ba6c,
-    type: 3}
-  lowPressure: {fileID: 7301919786284065083, guid: d447c5ea2c5194a2785810fcd7d704d3,
-    type: 3}

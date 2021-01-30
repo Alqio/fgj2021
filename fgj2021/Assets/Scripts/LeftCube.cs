@@ -28,6 +28,9 @@ public class LeftCube : MonoBehaviour
     void Update()
     {
         Vector2 m = new Vector2(move.x, move.y) * moveSpeed * Time.deltaTime;
+        if (!GetComponent<Wind>().IsTooCloseAfter(m))
+        {
+        }
         transform.Translate(m, Space.World);
     }
 

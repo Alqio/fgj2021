@@ -23,11 +23,17 @@ public class RightCube : MonoBehaviour
 
         controls.GameplayKeyboard.Arrows.performed += ctx => move = ctx.ReadValue<Vector2>();
         controls.GameplayKeyboard.Arrows.canceled += ctx => move = Vector2.zero;
+
+        //controls.GameplayMouse.MoveMouse.performed += ctx => move = ctx.ReadValue<Vector2>();
+        //controls.GameplayMouse.MoveMouse.canceled += ctx => move = Vector2.zero;
     }
 
     void Update()
     {
         Vector2 m = new Vector2(move.x, move.y) * moveSpeed * Time.deltaTime;
+        if (!GetComponent<Wind>().IsTooCloseAfter(m))
+        {
+        }
         transform.Translate(m, Space.World);
     }
 
@@ -35,6 +41,8 @@ public class RightCube : MonoBehaviour
     {
         controls.GameplaySticks.Enable();
         controls.GameplayKeyboard.Enable();
+        //controls.GameplayMouse.Enable();
+
 
     }
 
@@ -42,6 +50,7 @@ public class RightCube : MonoBehaviour
     {
         controls.GameplaySticks.Disable();
         controls.GameplayKeyboard.Disable();
+        //controls.GameplayMouse.Disable();
 
     }
 
