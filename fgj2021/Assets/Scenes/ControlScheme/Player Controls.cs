@@ -220,6 +220,33 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""MenuActions"",
+            ""id"": ""9427d60e-18ca-43bd-aa93-16c92aba3cca"",
+            ""actions"": [
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""706d4118-862a-4ef2-9d41-22b38cd2932e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""21bb7d22-2c2d-4d9b-a2d6-c7229a350f95"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -235,6 +262,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // GameplayMouse
         m_GameplayMouse = asset.FindActionMap("GameplayMouse", throwIfNotFound: true);
         m_GameplayMouse_MoveMouse = m_GameplayMouse.FindAction("MoveMouse", throwIfNotFound: true);
+        // MenuActions
+        m_MenuActions = asset.FindActionMap("MenuActions", throwIfNotFound: true);
+        m_MenuActions_Pause = m_MenuActions.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -395,6 +425,39 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public GameplayMouseActions @GameplayMouse => new GameplayMouseActions(this);
+
+    // MenuActions
+    private readonly InputActionMap m_MenuActions;
+    private IMenuActionsActions m_MenuActionsActionsCallbackInterface;
+    private readonly InputAction m_MenuActions_Pause;
+    public struct MenuActionsActions
+    {
+        private @PlayerControls m_Wrapper;
+        public MenuActionsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pause => m_Wrapper.m_MenuActions_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_MenuActions; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActionsActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActionsActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsActionsCallbackInterface != null)
+            {
+                @Pause.started -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_MenuActionsActionsCallbackInterface.OnPause;
+            }
+            m_Wrapper.m_MenuActionsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
+            }
+        }
+    }
+    public MenuActionsActions @MenuActions => new MenuActionsActions(this);
     public interface IGameplaySticksActions
     {
         void OnMoveRight(InputAction.CallbackContext context);
@@ -408,5 +471,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IGameplayMouseActions
     {
         void OnMoveMouse(InputAction.CallbackContext context);
+    }
+    public interface IMenuActionsActions
+    {
+        void OnPause(InputAction.CallbackContext context);
     }
 }
