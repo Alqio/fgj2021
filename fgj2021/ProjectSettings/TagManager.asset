@@ -10,6 +10,7 @@ TagManager:
   - Boat
   - Lifeboat
   - MainCanvas
+  - RockPile
   layers:
   - Default
   - TransparentFX
