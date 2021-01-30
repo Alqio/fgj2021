@@ -187,5 +187,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lowPressure: {fileID: 0}
   highPressure: {fileID: 0}
-  scale: 200
+  scale: 400
   maxDistance: 1000

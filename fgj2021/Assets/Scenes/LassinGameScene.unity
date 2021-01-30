@@ -847,6 +847,7 @@ MonoBehaviour:
     type: 3}
   spawnRate: 2.24
   targetPosition: {x: 0, y: 5}
+  spawnBarrierRange: {x: -350, y: 350}
 --- !u!1 &654365014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,6 +1776,7 @@ MonoBehaviour:
     type: 3}
   spawnRate: 2.24
   targetPosition: {x: 1500, y: 400}
+  spawnBarrierRange: {x: -350, y: 350}
 --- !u!1 &1181348836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1935,6 +1937,7 @@ MonoBehaviour:
     type: 3}
   spawnRate: 2.24
   targetPosition: {x: 750, y: 1000}
+  spawnBarrierRange: {x: -350, y: 350}
 --- !u!1 &1320384330 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 103782256293896345, guid: ac98e914d7a674605bebf42ee130ba6c,
@@ -2626,6 +2629,7 @@ MonoBehaviour:
     type: 3}
   spawnRate: 2.24
   targetPosition: {x: -128, y: -1200}
+  spawnBarrierRange: {x: -500, y: 500}
 --- !u!1 &1871798199
 GameObject:
   m_ObjectHideFlags: 0

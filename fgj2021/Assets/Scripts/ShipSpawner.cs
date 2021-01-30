@@ -2,13 +2,11 @@
 
 public class ShipSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public GameObject gameObjectToSpawn;
     public float spawnRate = 3.0f;
-    // public Vector2 spawnDirection;
 
     public Vector2 targetPosition;
+    public Vector2 spawnBarrierRange = new Vector2(-350, 350);
 
     void Start()
     {
@@ -24,14 +22,12 @@ public class ShipSpawner : MonoBehaviour
         float randomX = Random.Range(-150,150);
         float randomY = Random.Range(-150,150);
 
-        float t = Random.Range(-350,350);
+        float t = Random.Range(spawnBarrierRange.x, spawnBarrierRange.y);
 
         Vector2 spawnPoint = position + spawningBorderDirection * t;
 
-        // Vector2 offset = new Vector2(randomX, randomY);
         Quaternion spawnRotation = Quaternion.LookRotation(Vector3.forward, new Vector2(transform.position.x, transform.position.y) - targetPosition);
 
-        // GameObject ship = Instantiate(gameObjectToSpawn, new Vector2(transform.position.x, transform.position.y) + offset, transform.rotation);
         Transform parent = GameObject.FindGameObjectWithTag("MainCanvas").gameObject.transform;
         GameObject ship = GameObject.Instantiate(gameObjectToSpawn, spawnPoint, spawnRotation, parent);
 
