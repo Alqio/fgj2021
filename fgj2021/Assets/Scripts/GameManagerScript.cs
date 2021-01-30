@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class GameManagerScript : MonoBehaviour
 {
+    public Text deathsText;
+    public Text savedText;
+
+    private int saved;
+    private int deaths;
+
     public int lives;
+
     public static GameManagerScript Instance { get; private set; }
     void Awake() {
         if (Instance == null) { 
@@ -20,13 +27,22 @@ public class GameManagerScript : MonoBehaviour
     }
 
     public void lifeBoatDeath(string name) {
-        lives -= 1;
+        deaths += 1;
         Debug.Log(name + " has died from hunger!");
+        
+        deathsText.text = "DEATHS: " + deaths.ToString();
 
-        if (lives < 0) {
+        if (deaths >= lives) {
             Debug.Log("huutista");
         }
+
     }
+
+    public void rescueLifeBoat() {
+        saved += 1;
+        savedText.text = "SAVED: " + saved.ToString();
+    }
+    
     public string getName() {
         var nameScript = GetComponent<Names>();
         return nameScript.getName();

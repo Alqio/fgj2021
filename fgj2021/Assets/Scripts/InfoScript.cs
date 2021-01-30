@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class InfoScript : MonoBehaviour
 {
-    private int survived = 0;
-    private int dead = 0;
     public Text survivedText;
     public Text deadText;
 
@@ -16,9 +14,4 @@ public class InfoScript : MonoBehaviour
         deadText = GameObject.Find("DeadText").GetComponent<Text>();
     }
 
-    void Update()
-    {
-        survivedText.text = "Survived: " + survived;
-        deadText.text = "Dead: " + dead;
-    }
 }
