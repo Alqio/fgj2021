@@ -41,8 +41,8 @@ public class WindCollider : MonoBehaviour
             if (windTrail)
             {
                 // Debug.Log(GetComponent<Collider2D>().bounds.Contains(windTrail.transform.position));
-                Debug.Log(GetComponent<Collider2D>().bounds.ClosestPoint(windTrail.transform.position));
-                Debug.Log(windTrail.transform.position);
+                // Debug.Log(GetComponent<Collider2D>().bounds.ClosestPoint(windTrail.transform.position));
+                // Debug.Log(windTrail.transform.position);
                 Vector3 closestPoint = GetComponent<Collider2D>().bounds.ClosestPoint(windTrail.transform.position);
                 Vector2 closestPoint2D = (Vector2) closestPoint;
                 
