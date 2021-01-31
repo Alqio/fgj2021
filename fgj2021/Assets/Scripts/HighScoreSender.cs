@@ -26,8 +26,8 @@ public class HighScoreSender : MonoBehaviour
     {
         Debug.Log("POSTTTTia " + scoreInputField.text);
     
-        int deaths =  GameManagerScript.Instance.deaths; //int.Parse(deathsText.text);
-        int survived =  GameManagerScript.Instance.saved;//int.Parse(survivedText.text);
+        int deaths =  GameManagerScript.Instance.deaths;
+        int survived =  GameManagerScript.Instance.saved;
 
         string dateString = System.DateTime.UtcNow.ToString("o");
 
@@ -67,6 +67,7 @@ public class HighScoreSender : MonoBehaviour
         {
             byte[] results = request.downloadHandler.data;
             Debug.Log("POST results: " + results.ToString());
+            gameObject.SetActive(false);
         }
 
     }

@@ -2784,7 +2784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOverUI: {fileID: 370037175}
-  matchDuration: 80
+  matchDuration: 120
   timeRemainingText: {fileID: 1858927255}
 --- !u!1 &1213088721
 GameObject:
@@ -2979,8 +2979,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 171.2, y: 120}
-  m_SizeDelta: {x: 73.68103, y: 49.54544}
+  m_AnchoredPosition: {x: 168.9, y: 117}
+  m_SizeDelta: {x: 65, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1313221942
 MonoBehaviour:
@@ -3059,7 +3059,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2b31e02735876de4aa20fffe5ea8b7ea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fb642c4b0678da3459415b507aa24dda, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

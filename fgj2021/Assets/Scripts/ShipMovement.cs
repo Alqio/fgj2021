@@ -61,7 +61,45 @@ public class ShipMovement : MonoBehaviour
     {
         //Collider2D collider = Physics2D.OverlapBox(gameObject.transform.position, gameObject.transform.localScale * 3, 0.0f);
         GameObject[] allLifeBoats = GameObject.FindGameObjectsWithTag("Lifeboat");
+        GameObject[] allShips = GameObject.FindGameObjectsWithTag("Boat");
+        GameObject[] rocks = GameObject.FindGameObjectsWithTag("RockPile");
+        List<GameObject> avoidList = new List<GameObject>(allShips);
+        avoidList.AddRange(rocks);
         
+        int k = 0;
+        GameObject closest = null;
+        float minDist = 50000;
+        while(k < avoidList.Count)
+        {
+            GameObject targetObject = avoidList[k];//.gameObject;
+            if (targetObject != null && targetObject.GetInstanceID() != this.gameObject.GetInstanceID())// && targetObject.tag == "LifeBoat")
+            {
+                
+                float dist = (targetObject.transform.position - transform.position).magnitude;
+                // Debug.Log(dist);
+                if ((gameObject.tag == "RockPile" && dist < 500.0f) || (gameObject.tag == "Boat" && dist < 100.0f))
+                {
+                    if (dist < minDist)
+                    {
+                        closest = targetObject;
+                        minDist = dist;
+                    }
+                    //return targetObject.transform.position;
+                }
+            }
+            k++;
+        }
+
+        if (closest != null)
+        {
+            Vector2 dir = (transform.position - closest.transform.position);
+            Vector2 target_dir = (targetPosition - (Vector2) transform.position).normalized;
+            Debug.Log("YES CLOSEST!" + dir.magnitude);
+            return dir.normalized * (dir.magnitude * dir.magnitude * 10 + 0.5f) + (Vector2) transform.position + target_dir * 10.0f;// + targetPosition;
+        }
+        
+        // return targetPosition;
+
         if(allLifeBoats.Length == 0)//collidersHit.Length == 0)
         {
             //Debug.Log("YES NO COLLISIONS");
@@ -69,7 +107,9 @@ public class ShipMovement : MonoBehaviour
         }
         else
         {
-           // Debug.Log("YES SOMETHING IS HERE!");
+            // Debug.Log("YES SOMETHING IS HERE!");
+            
+        
             int i = 0;
             while(i < allLifeBoats.Length)
             {
