@@ -10,6 +10,11 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void ShowScoreboard()
+    {
+        Application.OpenURL("https://gmscoreboard.herokuapp.com/#/");
+    }
+
     public void StartGame()
     {
         Time.timeScale = 1f;
