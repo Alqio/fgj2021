@@ -28,8 +28,7 @@ public class WindCollider : MonoBehaviour
         float distanceBetweenPressures = NormalizeDist(Vector2.Distance(lowPressure.transform.position, highPressure.transform.position), maxDistance);
         speed = (lowPressure.transform.position - highPressure.transform.position) *
                     distanceBetweenPressures *
-                    scale *
-                    Time.deltaTime;
+                    scale;
         if (Random.Range(0, trailFrequency) == 1)
         {
             //Transform parent = GameObject.FindGameObjectWithTag("MainCanvas").gameObject.transform;
