@@ -5,7 +5,7 @@ using UnityEngine;
 public class RescueCollision : MonoBehaviour
 {
 
-    private bool isDestroyed = false;
+    public bool isDestroyed = false;
     // private Collision2D collision;
     // Start is called before the first frame update
     public AudioClip saveSound;
@@ -16,7 +16,6 @@ public class RescueCollision : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.gameObject.tag);
-        
         if (other.gameObject.tag == "Lifeboat")
         {
             Debug.Log("Rescued!");
@@ -24,11 +23,18 @@ public class RescueCollision : MonoBehaviour
             Destroy(other.gameObject);
             GameManagerScript.Instance.rescueLifeBoat();
         }
-        else if (other.gameObject.tag == "Boat" && !isDestroyed)
+        else if (other.gameObject.tag == "Boat")
         {
-            isDestroyed = true;
-            other.gameObject.GetComponent<ShipMovement>().DestroyBoat();
-            this.gameObject.GetComponent<ShipMovement>().DestroyBoat();
+            bool otherDestroyed = other.gameObject.GetComponent<RescueCollision>().isDestroyed;
+            if (!otherDestroyed)
+            {
+                other.gameObject.GetComponent<ShipMovement>().DestroyBoat();
+            }
+            if (!isDestroyed)
+            {
+                this.gameObject.GetComponent<ShipMovement>().DestroyBoat();
+                isDestroyed = true;
+            }
         }
     }
 }
