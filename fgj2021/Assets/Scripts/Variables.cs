@@ -106,7 +106,7 @@ public class Variables : MonoBehaviour
     void die()
     {
         GameManagerScript.Instance.lifeBoatDeath(personName);
-        AudioSource.PlayClipAtPoint(sinkSound, transform.position, 4f);
+        AudioSource.PlayClipAtPoint(sinkSound, transform.position, 100f);
         Destroy(gameObject);
     }
 

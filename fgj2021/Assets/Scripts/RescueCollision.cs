@@ -8,6 +8,8 @@ public class RescueCollision : MonoBehaviour
     private bool isDestroyed = false;
     // private Collision2D collision;
     // Start is called before the first frame update
+    public AudioClip saveSound;
+
     void Start()
     {
     }
@@ -18,6 +20,7 @@ public class RescueCollision : MonoBehaviour
         if (other.gameObject.tag == "Lifeboat")
         {
             Debug.Log("Rescued!");
+            AudioSource.PlayClipAtPoint(saveSound, transform.position, 100f);
             Destroy(other.gameObject);
             GameManagerScript.Instance.rescueLifeBoat();
         }
