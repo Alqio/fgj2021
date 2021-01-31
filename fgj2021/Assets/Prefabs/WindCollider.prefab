@@ -191,4 +191,4 @@ MonoBehaviour:
     type: 3}
   scale: 0.8
   maxDistance: 1000
-  trailFrequency: 4
+  trailFrequency: 17

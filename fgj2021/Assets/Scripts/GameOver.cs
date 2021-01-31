@@ -35,7 +35,14 @@ public class GameOver : MonoBehaviour
             float minutes_left = (int) timeRemaining / 60;
             float seconds_left = timeRemaining - minutes_left * 60;
 
-            time = minutes_left + ":" + seconds_left;
+            string seconds_left_string = seconds_left.ToString();
+            if (seconds_left_string.Length == 1)
+            {
+                seconds_left_string = "0" + seconds_left_string;
+            }
+
+
+            time = minutes_left + ":" + seconds_left_string;
         }
         else if (timeRemaining < 60 && timeRemaining >= 10)
         {

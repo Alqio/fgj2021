@@ -801,7 +801,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.964005, y: 0.29355}
+  m_AnchoredPosition: {x: -20.329002, y: 0.099999905}
   m_SizeDelta: {x: 130.9105, y: 16.875496}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &336265364
@@ -2439,7 +2439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -75, y: 0.099999905}
+  m_AnchoredPosition: {x: -77.1, y: 0.099999905}
   m_SizeDelta: {x: 137.09715, y: 17.262589}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1099243131
@@ -2784,7 +2784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOverUI: {fileID: 370037175}
-  matchDuration: 120
+  matchDuration: 80
   timeRemainingText: {fileID: 1858927255}
 --- !u!1 &1213088721
 GameObject:
@@ -3397,7 +3397,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 164.83868, y: 11}
+  m_SizeDelta: {x: 171.56943, y: 11.192303}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1462337621
 MonoBehaviour:
