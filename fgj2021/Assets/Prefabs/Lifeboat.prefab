@@ -277,6 +277,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fa0997fa68ae3a743897e0576d6b151e, type: 3}
   - {fileID: 21300000, guid: d6e85e38366cbe840ab67847ca3998c4, type: 3}
   - {fileID: 21300000, guid: 556390bf747ffdf44952f2c4d5f2ac12, type: 3}
+  sinkSound: {fileID: 8300000, guid: 7ec68184ce1b740a5b550d3ace96181e, type: 3}
 --- !u!50 &49188670697993818
 Rigidbody2D:
   serializedVersion: 4

@@ -17,6 +17,8 @@ public class Variables : MonoBehaviour
 
     public List<Sprite> sprites;
 
+    public AudioClip sinkSound;
+
     private SpriteRenderer hungerSpriteRect;
 
     private SpriteRenderer thristSpriteRect;
@@ -115,6 +117,7 @@ public class Variables : MonoBehaviour
     void die()
     {
         GameManagerScript.Instance.lifeBoatDeath(personName);
+        AudioSource.PlayClipAtPoint(sinkSound, transform.position, 100f);
         Destroy(gameObject);
     }
 

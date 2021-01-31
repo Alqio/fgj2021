@@ -98,7 +98,7 @@ public class ShipMovement : MonoBehaviour
         effectInstance.GetComponent<ParticleSystem>().Play();
 
         SpawnLifeboats lifeBoatSpawner = GetComponent<SpawnLifeboats>();
-        AudioSource.PlayClipAtPoint(sinkSound, transform.position, 4f);
+        AudioSource.PlayClipAtPoint(sinkSound, transform.position, 100f);
 
         lifeBoatSpawner.Spawn();
         Destroy(this.gameObject);
