@@ -10,8 +10,8 @@ public class RockCollider : MonoBehaviour
         
         if (other.gameObject.tag == "Lifeboat")
         {
-            Destroy(other.gameObject);
             GameManagerScript.Instance.lifeBoatDeath(other.GetComponent<Variables>().personName);
+            Destroy(other.gameObject);
         }
         else if (other.gameObject.tag == "Boat")
         {

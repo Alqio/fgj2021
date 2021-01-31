@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour
 {
     public Text deathsText;
@@ -14,10 +15,16 @@ public class GameManagerScript : MonoBehaviour
 
     public static GameManagerScript Instance { get; private set; }
     void Awake() {
+        Debug.LogError( SceneManager.GetActiveScene().name);
         if (Instance == null) { 
-            Instance = this; 
+            if (deathsText != null) {
+                Instance = this; 
+            } else {
+                Debug.LogError("deathsText oli null????");
+            }
+            
         } else { 
-            Debug.Log("Warning: multiple " + this + " in scene!"); 
+            Debug.LogError("Warning: multiple " + this + " in scene!"); 
         }
     }
 
@@ -46,6 +53,7 @@ public class GameManagerScript : MonoBehaviour
     public string getName() {
         var nameScript = GetComponent<Names>();
         return nameScript.getName();
+        //return "paska";
     }
 
 }
