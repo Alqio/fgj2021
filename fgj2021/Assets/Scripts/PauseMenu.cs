@@ -14,28 +14,34 @@ public class PauseMenu : MonoBehaviour
     PlayerControls controls;
 
 
-    void Awake() {
+    void Awake()
+    {
         controls = new PlayerControls();
 
         controls.MenuActions.Pause.started += ctx => PauseGame();//Debug.Log("hjasd");
         //controls.MenuActions.Pause.canceled += ctx => move = Vector2.zero;
     }
 
-    void Start() {
+    void Start()
+    {
         GameIsPaused = false;
         Time.timeScale = 1f;
     }
 
-    void Update() {
-        Debug.Log(Time.timeScale);
-        
+    void Update()
+    {
+        //Debug.Log(Time.timeScale);
+
     }
 
-    void PauseGame() {
-        if(GameIsPaused)
+    void PauseGame()
+    {
+        if (GameIsPaused)
         {
             Resume();
-        } else {
+        }
+        else
+        {
             Pause();
         }
     }
