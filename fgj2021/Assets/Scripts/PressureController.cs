@@ -13,7 +13,7 @@ public class PressureController : MonoBehaviour
     Vector2 moveLeft;
 
     PlayerControls controls;
-    bool inverted = false;
+    bool inverted = true;
     private List<GameObject> pressureAreas = new List<GameObject>();
 
     // Start is called before the first frame update
