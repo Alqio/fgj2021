@@ -190,5 +190,5 @@ MonoBehaviour:
   windTrailPrefab: {fileID: 3133878408441627968, guid: 0b5966b3725b8446c93db93a90ab3a77,
     type: 3}
   scale: 0.8
-  maxDistance: 1000
-  trailFrequency: 17
+  maxDistance: 1500
+  trailFrequency: 4

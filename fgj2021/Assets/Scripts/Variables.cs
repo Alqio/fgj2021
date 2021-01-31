@@ -27,6 +27,8 @@ public class Variables : MonoBehaviour
     private Color yellow = new Color(1, 1, 0, 1);
     private Color red = new Color(1, 0, 0, 1);
 
+    public GUIStyle style;
+
     bool dying = false;
 
     // Start is called before the first frame update
@@ -126,6 +128,6 @@ public class Variables : MonoBehaviour
     {
         var position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
         var textSize = GUI.skin.label.CalcSize(new GUIContent(personName));
-        GUI.Label(new Rect(position.x, Screen.height - position.y, textSize.x, textSize.y), personName);
+        GUI.Label(new Rect(position.x, Screen.height - position.y, textSize.x, textSize.y), personName, style);
     }
 }

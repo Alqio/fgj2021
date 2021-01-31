@@ -21,6 +21,16 @@ public class WindCollider : MonoBehaviour
         windTrailObjects = GameObject.Find("WindTrails");
     }
 
+    void FixedUpdate() {
+        if (Random.Range(0, trailFrequency) == 1)
+        {
+            //Transform parent = GameObject.FindGameObjectWithTag("MainCanvas").gameObject.transform;
+            Vector2 point = RandomPointInBounds(GetComponent<Collider2D>().bounds);
+            GameObject w = Instantiate(windTrailPrefab, point, new Quaternion(0, 0, 0, 0), windTrailObjects.transform);
+            windTrails.Add(w);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -29,13 +39,7 @@ public class WindCollider : MonoBehaviour
         speed = (lowPressure.transform.position - highPressure.transform.position) *
                     distanceBetweenPressures *
                     scale;
-        if (Random.Range(0, trailFrequency) == 1)
-        {
-            //Transform parent = GameObject.FindGameObjectWithTag("MainCanvas").gameObject.transform;
-            Vector2 point = RandomPointInBounds(GetComponent<Collider2D>().bounds);
-            GameObject w = Instantiate(windTrailPrefab, point, new Quaternion(0, 0, 0, 0), windTrailObjects.transform);
-            windTrails.Add(w);
-        }
+
         foreach (var windTrail in windTrails)
         {
             if (windTrail)
